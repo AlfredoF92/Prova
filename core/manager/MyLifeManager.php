@@ -546,20 +546,20 @@
 			//return $dateToday . " - " . $dateFinal . " - " . $percentageGoal . " - " . $minutes;
 			if($percentageGoal == 100) return "100% - Completato";
 			
-			
-			if($minutes<60){
-				return "Mancano pochi minuti";
-			
-			}else if($minutes<1440){
-				return "Mancano poche ore";
-				
-			}else if($minutes>1440 && $minutes<2880){
-				return "Manca circa 1 giorno";
-			
-			}else if($minutes>1440){
-				return "Mancano circa " . round(($minutes/60)/24, 0) . " giorni";
+			if($percentageGoal>40){
+				if($minutes<60){
+					return "Mancano pochi minuti";
+
+				}else if($minutes<1440){
+					return "Mancano poche ore";
+
+				}else if($minutes>1440 && $minutes<2880){
+					return "Manca circa 1 giorno";
+
+				}else if($minutes>1440){
+					return "Mancano circa " . round(($minutes/60)/24, 0) . " giorni";
+				}
 			}
-			
 			
 		}
 		

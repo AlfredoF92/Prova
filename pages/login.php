@@ -19,6 +19,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
 <?php
 	session_start();
 	session_destroy();
@@ -88,7 +89,7 @@
 						   	
 						   	
 						    if(risposta>0){
-								window.location.href = "http://localhost/MyLife/pages/index.php"
+								window.location.href = "http://localhost/iambrand/iambrand/pages/index.php"
 							}
 							else $( "#risposta" ).html("Username o password errati.");
 							

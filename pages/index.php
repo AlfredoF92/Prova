@@ -155,7 +155,7 @@ $manager = new MyLifeManager();
 							<button class="btn btn-xs btn-default" >Crea obiettivo</button>
 						</div>
 
-						<?php include_once("goalModal.php"); ?>
+						<?php include_once("goalPanels.php"); ?>
 					</div>
 					<!-- .panel-body -->
 				</div>

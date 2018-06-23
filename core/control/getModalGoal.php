@@ -36,8 +36,13 @@
 							
 							
 							echo $goal->title; 
+						    
+							$dateBegin = $goal->dateBegin;
+							$dateFinal = $goal->dateFinal;
+							$dateToday = date( "Y-m-d H:m:s" );
+
+							$percentageGoal = $myLife_manager->getPercentageInMinutes($dateBegin, $dateFinal,$dateToday);	
 						
-							$percentageGoal = $myLife_manager->getpercentageGoal($goal->dateBegin, $goal->dateFinal, date("Y-m-d"));
 							
 						?>
 

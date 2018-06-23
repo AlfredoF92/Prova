@@ -19,22 +19,10 @@
 	for ( $i = 0; $i < $max; $i++ ) {
 		if ($array_goal == -1) break; 
 		
+		
 		$dateBegin = $array_goal[ $i ]->dateBegin;
 		$dateFinal = $array_goal[ $i ]->dateFinal;
 		$dateToday = date( "Y-m-d H:m:s" );
-
-		/*
-			//$strStart = '2013-06-18 18:25'; 
-			//$strEnd   = '06/19/13 21:47'; 
-			$dteStart = new DateTime($dateBegin); 
-			$dteEnd   = new DateTime($dateFinal); 
-			$dteDiff  = $dteStart->diff($dteEnd); 
-			print $dteDiff->format("%H:%I:%S");
-		
-		echo $dateBegin . " <br>";
-		echo $dateFinal . " <br>";
-		echo $dateToday . " <br>";
-		*/
 		
 		$percentageGoal = $manager->getPercentageInMinutes($dateBegin, $dateFinal,$dateToday);
 		$stringPercentageGoal = $manager->getStringITA($dateBegin, $dateFinal,$dateToday);

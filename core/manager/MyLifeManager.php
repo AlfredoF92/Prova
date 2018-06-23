@@ -463,6 +463,10 @@
 			$interval = $datetime1->diff( $datetime2 );
 			$total = $interval->format( '%a' );
 			*/
+			
+		 	if($dateBegin > $dateFinal) return -1;
+			else if($dateFinal < $dateToday) return 100; 
+			
 			$days = $this->getDaysDiff($dateBegin, $dateFinal);
 			
 			$datetime3 = new DateTime( $dateToday );
@@ -482,6 +486,10 @@
 			$interval = $datetime1->diff( $datetime2 );
 			$total = $interval->format( '%a' );
 			*/
+			
+			if($dateBegin > $dateFinal) return -1;
+			else if($dateFinal < $dateToday) return 100; 
+				
 			$minutes = $this->getMinutesDiff($dateBegin, $dateFinal);
 			
 			$datetime3 = new DateTime( $dateToday );
@@ -529,15 +537,30 @@
 			return $minutes;
 		}
 		
-		function getStringITA($dateBegin, $dateFinal, $dateToday ){
+		function getStringITA($dateBegin, $dateFinal, $dateToday){
 			
-			$days = $this->getPercentageInGoal($dateBegin, $dateFinal, $dateToday);
+			$percentageGoal = $this->getPercentageInMinutes($dateBegin, $dateFinal, $dateToday);
 			
-			if($days<1){
-				return "Manca 1 giorno";
-			}else if($days>1){
-				return "Mancano " . $days . " giorni";
+			$minutes = $this->getMinutesDiff($dateToday, $dateFinal);
+			
+			//return $dateToday . " - " . $dateFinal . " - " . $percentageGoal . " - " . $minutes;
+			if($percentageGoal == 100) return "100% - Completato";
+			
+			
+			if($minutes<60){
+				return "Mancano pochi minuti";
+			
+			}else if($minutes<1440){
+				return "Mancano poche ore";
+				
+			}else if($minutes>1440 && $minutes<2880){
+				return "Manca circa 1 giorno";
+			
+			}else if($minutes>1440){
+				return "Mancano circa " . round(($minutes/60)/24, 0) . " giorni";
 			}
+			
+			
 		}
 		
 		/*

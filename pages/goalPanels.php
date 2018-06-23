@@ -22,7 +22,7 @@
 		
 		$dateBegin = $array_goal[ $i ]->dateBegin;
 		$dateFinal = $array_goal[ $i ]->dateFinal;
-		$dateToday = date( "Y-m-d H:m:s" );
+		$dateToday = date('Y-m-d H:i:s', time());
 		
 		$percentageGoal = $manager->getPercentageInMinutes($dateBegin, $dateFinal,$dateToday);
 		$stringPercentageGoal = $manager->getStringITA($dateBegin, $dateFinal,$dateToday);

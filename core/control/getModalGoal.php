@@ -39,11 +39,12 @@
 						    
 							$dateBegin = $goal->dateBegin;
 							$dateFinal = $goal->dateFinal;
-							$dateToday = date( "Y-m-d H:m:s" );
+							$dateToday = date('Y-m-d H:i:s', time());
 
 							$percentageGoal = $myLife_manager->getPercentageInMinutes($dateBegin, $dateFinal,$dateToday);	
 						
-							
+							$stringPercentageGoal = $myLife_manager->getStringITA($dateBegin, $dateFinal,$dateToday);
+		
 						?>
 
 					</h4>
@@ -66,7 +67,7 @@
 
 
 						<div class="progress">
-							<div class="progress-bar progress-bar-danger progress-bar-striped" style="width: <?php 	echo $percentageGoal . '%'; ?>; background-color: <?php echo $goal->color ?>"><?php echo $percentageGoal . '%'; ?></div>
+							<div class="progress-bar progress-bar-danger progress-bar-striped" style="width: <?php 	echo $percentageGoal . '%'; ?>; background-color: <?php echo $goal->color ?>"><?php echo $stringPercentageGoal; ?></div>
 
 						</div>
 

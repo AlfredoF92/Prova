@@ -64,7 +64,7 @@ $idUser = $_SESSION[ 'id' ];
 				<p id="g_description">
 					<?php echo $goal->description; ?>
 				</p>
-				
+
 
 				<div class="progress">
 					<div class="progress-bar progress-bar-danger progress-bar-striped" style="width: <?php 	echo $percentageGoal . '%'; ?>; background-color: <?php echo $goal->color ?>">
@@ -73,10 +73,20 @@ $idUser = $_SESSION[ 'id' ];
 
 				</div>
 				<div style="line-height: 10px">
-					<p> <strong>Data inizio:</strong> <?php echo $goal->dateBegin; ?> </p>
-					<p> <strong>Data fine:</strong> <?php echo $goal->dateFinal; ?> </p>
+					<div class="row">
+						<div class="col-lg-6">
+							 <strong>Data inizio:</strong>
+								<?php echo $goal->dateBegin; ?> 
+						</div>
+						<div class="col-lg-6 text-right" >
+							<strong>Data fine:</strong>
+								<?php echo $goal->dateFinal; ?> 
+						</div>
+
+					</div>
 				</div>
-				<div class="row">
+				<hr>
+				<div class="row" >
 					<div class="col-lg-6">
 						<div class="form-group">
 							<div style="padding: 20px" class="text-center">
@@ -118,9 +128,7 @@ $idUser = $_SESSION[ 'id' ];
 					</div>
 					<div class="col-lg-6">
 						<div class="row">
-							<div class="col-lg-12 text-right">
-								<span id="label_slider_R" style="color: black">Percentage</span>
-							</div>
+							
 							<div class="col-lg-12">
 								<div style="display: none" class="slidecontainer">
 									<input disabled type="range" min="-10" max="10" value="<?php echo $goal->percentageInvestor; ?>" class="slider" id="goal_percentage">
@@ -269,267 +277,281 @@ $idUser = $_SESSION[ 'id' ];
 				</div>
 
 				<div class="form-group">
-					<label for="sel1">Data inizio</label>
-					<input type="text" class="form-control" id="gm_dateBegin" value="<?php echo $goal->dateBegin; ?>">
-
-					<label for="sel1">Data fine</label>
-					<input type="text" class="form-control" id="gm_dateFinal" value="<?php echo $goal->dateFinal; ?>">
+					<div class="row">
+						<div class="col-lg-6">
+							<label for="sel1">Data inizio</label>
+							<input type="text" class="form-control" id="gm_dateBegin" value="<?php echo $goal->dateBegin; ?>">
+						</div>
+						<div class="col-lg-6">
+							<label for="sel1">Data fine</label>
+							<input type="text" class="form-control" id="gm_dateFinal" value="<?php echo $goal->dateFinal; ?>">
+						</div>
+					</div>
 				</div>
 
 				<div class="form-group">
 					<div style="padding: 20px" class="text-center">
 						<div class="row">
-							<div class="col-lg-3">
-								<span id="label_slider_Y">Yourself</span>
-							</div>
-							<div class="col-lg-9">
-								<div class="slidecontainer">
-									<input type="range" min="-10" max="10" value="<?php echo $goal->lifeYourself; ?>" class="slider" id="gm_lifeYourself">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-3">
-								<span id="label_slider_C">Career</span>
-							</div>
-							<div class="col-lg-9">
-								<div class="slidecontainer">
-									<input type="range" min="-10" max="10" value="<?php echo $goal->lifeCareer; ?>" class="slider" id="gm_lifeCareer">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-3">
-								<span id="label_slider_R">Relationship</span>
-							</div>
-							<div class="col-lg-9">
-								<div class="slidecontainer">
-									<input type="range" min="-10" max="10" value="<?php echo $goal->lifeRelationships; ?>" class="slider" id="gm_lifeRelationships">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-3">
-								<span id="label_slider_R">Percentage</span>
-							</div>
-							<div class="col-lg-9">
-								<div class="slidecontainer">
-									<input type="range" min="-10" max="10" value="<?php echo $goal->percentageInvestor; ?>" class="slider" id="gm_percentage">
-								</div>
-							</div>
-						</div>
+							<div class="col-lg-6">
 
+								<div class="row">
+									<div class="col-lg-3">
+										<span id="label_slider_Y">Yourself</span>
+									</div>
+									<div class="col-lg-9">
+										<div class="slidecontainer">
+											<input type="range" min="-10" max="10" value="<?php echo $goal->lifeYourself; ?>" class="slider" id="gm_lifeYourself">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<span id="label_slider_C">Career</span>
+									</div>
+									<div class="col-lg-9">
+										<div class="slidecontainer">
+											<input type="range" min="-10" max="10" value="<?php echo $goal->lifeCareer; ?>" class="slider" id="gm_lifeCareer">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<span id="label_slider_R">Relationship</span>
+									</div>
+									<div class="col-lg-9">
+										<div class="slidecontainer">
+											<input type="range" min="-10" max="10" value="<?php echo $goal->lifeRelationships; ?>" class="slider" id="gm_lifeRelationships">
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-3">
+										<span id="label_slider_R">Percentage</span>
+									</div>
+									<div class="col-lg-9 text-right">
+										<div class="slidecontainer">
+											<input type="range" min="-10" max="10" value="<?php echo $goal->percentageInvestor; ?>" class="slider" id="gm_percentage">
+										</div>
+										<span style="font-size: 35px;">+10%</span>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
 					</div>
 				</div>
+
 			</div>
+			<!-- BODY -->
+			<div class="modal-footer">
 
+
+				<button type="button" class="btn btn-default" data-dismiss="modal">Annulla Modifiche</button>
+				<button id="buttonModifyGoal" class="btn btn-info">Modifica</button>
+				<button id="deleteGoal" class="btn btn-danger">Elimina</button>
+
+				<button id="saveGoal" type="button" class="btn btn-warning">Salva</button>
+
+				<button id="goalFailed" class="btn btn-danger">Ho fallito</button>
+				<button id="publicGoal" class="btn btn-success">Obiettivo superato</button>
+
+			</div>
+			<div id="answerHtml"></div>
 		</div>
-		<!-- BODY -->
-		<div class="modal-footer">
 
-
-			<button type="button" class="btn btn-default" data-dismiss="modal">Annulla Modifiche</button>
-			<button id="buttonModifyGoal" class="btn btn-info">Modifica</button>
-			<button id="deleteGoal" class="btn btn-danger">Elimina</button>
-
-			<button id="saveGoal" type="button" class="btn btn-warning">Salva</button>
-
-			<button id="goalFailed" class="btn btn-danger">Ho fallito</button>
-			<button id="publicGoal" class="btn btn-success">Obiettivo superato</button>
-
-		</div>
-		<div id="answerHtml"></div>
 	</div>
 
-</div>
+
+	<script>
+		/*
+							0 = label Goal
+							1 = label New
+							2 = label Edit
+						*/
+		var labelOperation = 0;
+		$( "#saveGoal" ).hide();
+		$( "#deleteGoal" ).hide();
+
+		$( "#buttonEditLabel" ).click( function () {
+			$( "#spanLabel" ).text( "Modifica Etichetta" );
+			$( "#divEditLabel" ).show();
+			$( "#oldLabel" ).hide();
+			$( "#buttonNewLabel" ).hide();
+			$( "#buttonEditLabel" ).hide();
+			labelOperation = 2;
+		} );
+
+		$( "#cancelEditLabel" ).click( function () {
+			$( "#spanLabel" ).text( "Etichetta" );
+			$( "#buttonNewLabel" ).show();
+			$( "#buttonEditLabel" ).show();
+			$( "#divEditLabel" ).hide();
+			$( "#oldLabel" ).show();
+			labelOperation = 0;
+		} );
+
+		$( "#buttonNewLabel" ).click( function () {
+			$( "#spanLabel" ).text( "Nuova Etichetta" );
+			$( "#divNewLabel" ).show();
+			$( "#oldLabel" ).hide();
+			$( "#buttonNewLabel" ).hide();
+			$( "#buttonEditLabel" ).hide();
+			labelOperation = 1;
+		} );
+
+		$( "#cancelNewLabel" ).click( function () {
+			$( "#spanLabel" ).text( "Etichetta" );
+			$( "#buttonNewLabel" ).show();
+			$( "#oldLabel" ).show();
+			$( "#divNewLabel" ).hide();
+			$( "#buttonEditLabel" ).show();
+			labelOperation = 0;
+		} );
+
+		$( "#buttonModifyGoal" ).click( function () {
+			$( "#spanLabel" ).text( "Etichetta" );
+			$( "#bodyModalGoal" ).hide();
+			$( "#bodyModalGoalToModify" ).show();
+			$( "#buttonModifyGoal" ).hide();
+			$( "#publicGoal" ).hide();
+			$( "#goalFailed" ).hide();
+			$( "#deleteGoal" ).show();
+			$( "#saveGoal" ).show();
+
+			labelOperation = 0;
+		} );
+
+		$( "#deleteGoal" ).click( function () {
+			var datiForm = new FormData();
+			datiForm.append( 'idGoal', <?php echo $idGoal; ?> );
+
+			$.ajax( {
+				url: "../core/control/deleteGoal.php",
+				type: 'POST', //Le info testuali saranno passate in POST
+				data: datiForm, //I dati, forniti sotto forma di oggetto FormData
+				cache: false,
+				processData: false, //Serve per NON far convertire l’oggetto
+				//FormData in una stringa, preservando il file
+				contentType: false, //Serve per NON far inserire automaticamente
+				//un content type errato
+				success: function ( risposta ) {
+					//alert(risposta);
+					//$('#answerHtml').html(risposta);
+
+					// imposto un refresh di pagina dopo 60 secondi
+
+					setTimeout( function () {
+						window.location.reload()
+					}, 1000 );
+
+				},
+				error: function () {
+					alert( "Chiamata fallita!!!" );
+				}
+			} );
+
+		} );
+
+		$( "#saveGoal" ).click( function () {
+
+			var datiForm = new FormData();
+			datiForm.append( 'idGoal', <?php echo $idGoal; ?> );
+			datiForm.append( 'title', $( "#gm_title" ).val() );
+			datiForm.append( 'description', $( "#gm_description" ).val() );
+
+			datiForm.append( 'dateBegin', $( "#gm_dateBegin" ).val() );
+			datiForm.append( 'dateFinal', $( "#gm_dateFinal" ).val() );
+
+			datiForm.append( 'lifeYourself', $( "#gm_lifeYourself" ).val() );
+			datiForm.append( 'lifeCareer', $( "#gm_lifeCareer" ).val() );
+			datiForm.append( 'lifeRelationships', $( "#gm_lifeRelationships" ).val() );
+			datiForm.append( 'percentage', $( "#gm_percentage" ).val() );
 
 
-<script>
-	/*
-			0 = label Goal
-			1 = label New
-			2 = label Edit
+			//ETICHETTA
+			datiForm.append( 'labelOperation', labelOperation );
+
+			if ( labelOperation == 0 ) {
+				val = $( "#gm_idlabel" ).val();
+				id = val.substring( 0, val.indexOf( "_" ) );
+
+				datiForm.append( 'idLabel', id );
+				//datiForm.append( 'idlabelColor', $("#gm_idlabelColor").val() );
+
+			} else if ( labelOperation == 1 ) {
+
+				datiForm.append( 'newLabel', $( "#gm_newLabel" ).val() );
+				datiForm.append( 'newLabelColor', $( "#gm_newLabelColor" ).val() );
+
+			} else if ( labelOperation == 2 ) {
+				val = $( "#gm_idlabel" ).val();
+				id = val.substring( 0, val.indexOf( "_" ) );
+
+				datiForm.append( 'idEditLabel', id );
+				datiForm.append( 'labelEditName', $( "#gm_NameEditLabel" ).val() );
+				datiForm.append( 'labelEditColor', $( "#gm_newEditColor" ).val() );
+
+			}
+
+
+			//idGoal = $( this ).attr( "id" );
+			//$("#modalGoal .modal-title").html("Ciao");	
+			$.ajax( {
+				url: "../core/control/saveGoal.php",
+				type: 'POST', //Le info testuali saranno passate in POST
+				data: datiForm, //I dati, forniti sotto forma di oggetto FormData
+				cache: false,
+				processData: false, //Serve per NON far convertire l’oggetto
+				//FormData in una stringa, preservando il file
+				contentType: false, //Serve per NON far inserire automaticamente
+				//un content type errato
+				success: function ( risposta ) {
+					//alert(risposta);
+					//$('#answerHtml').html(risposta);
+
+					// imposto un refresh di pagina dopo 60 secondi
+
+					setTimeout( function () {
+						window.location.reload()
+					}, 1000 );
+
+				},
+				error: function () {
+					alert( "Chiamata fallita!!!" );
+				}
+			} );
+
+		} );
+
+		/*
+			$('select').on('change', function() {
+			  alert( this.value );
+			});
+
+			$('# option[value=val2]').attr('selected','selected');
+
+			$('select_tags').on('change', function() {
+				alert( $(this).find(":selected").val() );
+			});
 		*/
-	var labelOperation = 0;
-	$( "#saveGoal" ).hide();
-	$( "#deleteGoal" ).hide();
 
-	$( "#buttonEditLabel" ).click( function () {
-		$( "#spanLabel" ).text( "Modifica Etichetta" );
-		$( "#divEditLabel" ).show();
-		$( "#oldLabel" ).hide();
-		$( "#buttonNewLabel" ).hide();
-		$( "#buttonEditLabel" ).hide();
-		labelOperation = 2;
-	} );
-
-	$( "#cancelEditLabel" ).click( function () {
-		$( "#spanLabel" ).text( "Etichetta" );
-		$( "#buttonNewLabel" ).show();
-		$( "#buttonEditLabel" ).show();
-		$( "#divEditLabel" ).hide();
-		$( "#oldLabel" ).show();
-		labelOperation = 0;
-	} );
-
-	$( "#buttonNewLabel" ).click( function () {
-		$( "#spanLabel" ).text( "Nuova Etichetta" );
-		$( "#divNewLabel" ).show();
-		$( "#oldLabel" ).hide();
-		$( "#buttonNewLabel" ).hide();
-		$( "#buttonEditLabel" ).hide();
-		labelOperation = 1;
-	} );
-
-	$( "#cancelNewLabel" ).click( function () {
-		$( "#spanLabel" ).text( "Etichetta" );
-		$( "#buttonNewLabel" ).show();
-		$( "#oldLabel" ).show();
-		$( "#divNewLabel" ).hide();
-		$( "#buttonEditLabel" ).show();
-		labelOperation = 0;
-	} );
-
-	$( "#buttonModifyGoal" ).click( function () {
-		$( "#spanLabel" ).text( "Etichetta" );
-		$( "#bodyModalGoal" ).hide();
-		$( "#bodyModalGoalToModify" ).show();
-		$( "#buttonModifyGoal" ).hide();
-		$( "#publicGoal" ).hide();
-		$( "#goalFailed" ).hide();
-		$( "#deleteGoal" ).show();
-		$( "#saveGoal" ).show();
-
-		labelOperation = 0;
-	} );
-
-	$( "#deleteGoal" ).click( function () {
-		var datiForm = new FormData();
-		datiForm.append( 'idGoal', <?php echo $idGoal; ?> );
-
-		$.ajax( {
-			url: "../core/control/deleteGoal.php",
-			type: 'POST', //Le info testuali saranno passate in POST
-			data: datiForm, //I dati, forniti sotto forma di oggetto FormData
-			cache: false,
-			processData: false, //Serve per NON far convertire l’oggetto
-			//FormData in una stringa, preservando il file
-			contentType: false, //Serve per NON far inserire automaticamente
-			//un content type errato
-			success: function ( risposta ) {
-				//alert(risposta);
-				//$('#answerHtml').html(risposta);
-
-				// imposto un refresh di pagina dopo 60 secondi
-
-				setTimeout( function () {
-					window.location.reload()
-				}, 1000 );
-
-			},
-			error: function () {
-				alert( "Chiamata fallita!!!" );
-			}
-		} );
-
-	} );
-
-	$( "#saveGoal" ).click( function () {
-
-		var datiForm = new FormData();
-		datiForm.append( 'idGoal', <?php echo $idGoal; ?> );
-		datiForm.append( 'title', $( "#gm_title" ).val() );
-		datiForm.append( 'description', $( "#gm_description" ).val() );
-
-		datiForm.append( 'dateBegin', $( "#gm_dateBegin" ).val() );
-		datiForm.append( 'dateFinal', $( "#gm_dateFinal" ).val() );
-
-		datiForm.append( 'lifeYourself', $( "#gm_lifeYourself" ).val() );
-		datiForm.append( 'lifeCareer', $( "#gm_lifeCareer" ).val() );
-		datiForm.append( 'lifeRelationships', $( "#gm_lifeRelationships" ).val() );
-		datiForm.append( 'percentage', $( "#gm_percentage" ).val() );
-
-
-		//ETICHETTA
-		datiForm.append( 'labelOperation', labelOperation );
-
-		if ( labelOperation == 0 ) {
-			val = $( "#gm_idlabel" ).val();
+		$( '#oldLabel select' ).on( 'change', function () {
+			val = $( this ).find( ":selected" ).val();
 			id = val.substring( 0, val.indexOf( "_" ) );
+			color = val.substring( val.indexOf( "_" ) + 1 );
 
-			datiForm.append( 'idLabel', id );
-			//datiForm.append( 'idlabelColor', $("#gm_idlabelColor").val() );
+			text = $( this ).find( ":selected" ).text();
 
-		} else if ( labelOperation == 1 ) {
+			$( "#gm_NameEditLabel" ).val( text );
 
-			datiForm.append( 'newLabel', $( "#gm_newLabel" ).val() );
-			datiForm.append( 'newLabelColor', $( "#gm_newLabelColor" ).val() );
-
-		} else if ( labelOperation == 2 ) {
-			val = $( "#gm_idlabel" ).val();
-			id = val.substring( 0, val.indexOf( "_" ) );
-
-			datiForm.append( 'idEditLabel', id );
-			datiForm.append( 'labelEditName', $( "#gm_NameEditLabel" ).val() );
-			datiForm.append( 'labelEditColor', $( "#gm_newEditColor" ).val() );
-
-		}
+			selectorColor = '#divEditLabel option[value=' + color + ']';
+			$( selectorColor ).attr( 'selected', 'selected' );
 
 
-		//idGoal = $( this ).attr( "id" );
-		//$("#modalGoal .modal-title").html("Ciao");	
-		$.ajax( {
-			url: "../core/control/saveGoal.php",
-			type: 'POST', //Le info testuali saranno passate in POST
-			data: datiForm, //I dati, forniti sotto forma di oggetto FormData
-			cache: false,
-			processData: false, //Serve per NON far convertire l’oggetto
-			//FormData in una stringa, preservando il file
-			contentType: false, //Serve per NON far inserire automaticamente
-			//un content type errato
-			success: function ( risposta ) {
-				//alert(risposta);
-				//$('#answerHtml').html(risposta);
 
-				// imposto un refresh di pagina dopo 60 secondi
-
-				setTimeout( function () {
-					window.location.reload()
-				}, 1000 );
-
-			},
-			error: function () {
-				alert( "Chiamata fallita!!!" );
-			}
 		} );
-
-	} );
-
-	/*
-		$('select').on('change', function() {
-		  alert( this.value );
-		});
-
-		$('# option[value=val2]').attr('selected','selected');
-
-		$('select_tags').on('change', function() {
-			alert( $(this).find(":selected").val() );
-		});
-	*/
-
-	$( '#oldLabel select' ).on( 'change', function () {
-		val = $( this ).find( ":selected" ).val();
-		id = val.substring( 0, val.indexOf( "_" ) );
-		color = val.substring( val.indexOf( "_" ) + 1 );
-
-		text = $( this ).find( ":selected" ).text();
-
-		$( "#gm_NameEditLabel" ).val( text );
-
-		selectorColor = '#divEditLabel option[value=' + color + ']';
-		$( selectorColor ).attr( 'selected', 'selected' );
-
-
-
-	} );
-</script>
+	</script>

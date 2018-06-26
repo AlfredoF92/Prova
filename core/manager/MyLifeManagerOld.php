@@ -4,8 +4,56 @@
 	class MyLifeManager extends Manager{
 		
 		/*
-			MANAGER GOALS
+		public function addInvestitori($commento, $percentualeInvestitori){
+		
+			$commento = addslashes($commento);
+			
+			$query = "INSERT INTO `investitori` (`ID`, `Commento`, `percentuale`) VALUES (NULL, '$commento', '$percentualeInvestitori');";
+			
+			$result = Manager::getDB()->query($query);
+					
+			//$commento = stripslashes($commento);
+			//$commento = nl2br($commento);
+			//$commento = htmlspecialchars($commento);
+			//$commento = ereg_replace("&lt;br /&gt;","",$commento);
+			//$commento = ereg_replace("&lt;br&gt;","",$commento);
+			
+			if (!$result) {
+				echo "addInvestitori-Description Error: " . Manager::getDB()->error . " <br>";
+				echo "addInvestitori-Description Error: " . Manager::getDB()->errno . " <br>";	
+				exit;
+			}
+			
+			$query = "Select Max(ID) From Investitori";
+			$result = Manager::getDB()->query($query);
+			
+			//LAST ID
+			$obj = $result->fetch_row(); 
+			return $obj[0];
+			
+		}
 		*/
+		
+		public function addDay($titolo, $descrizione, $date, $commentoInvestitori, $percentualeInvestitori, $urlImage, $idUtente){
+			
+			$ID = $this->addInvestitori($commentoInvestitori, $percentualeInvestitori);
+			
+			$descrizione = addslashes($descrizione);
+			//echo "URLImage: " . $urlImage;
+			
+			//echo "<p>IERI: </p>" + date("l-m-d", mktime(0, 0, 0, date("m"), date("d")-1, date("Y")));
+			$query = "INSERT INTO `day` (`ID`, `Titolo`, `Sottotitolo`, `Descrizione`, `Data`, `idInvestitori`, `image`,`idUtente`) VALUES (NULL, '$titolo', '', '$descrizione', '$date', '$ID', '$urlImage', '$idUtente' )";
+						
+			$result = Manager::getDB()->query($query);
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+		}
+		
+		
 		public function addGoal($idUser, $title, $description, $dateBegin, $dateFinal, $idLabel, $lifeYourself, $lifeCareer, $lifeRelationships, $percentageInvestor){
 			
 			$title = addslashes($title);
@@ -102,6 +150,42 @@
 			
 		}
 		
+		
+		public function addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type){
+			
+			//$description = addslashes($description);
+			//echo "URLImage: " . $urlImage;
+			/*
+			echo "idUser: " . $idUser .  " <br>\n"; 
+			echo "Date: " . $date .  " <br>\n"; 
+			echo "Title: " . $title .  " <br>\n"; 
+			echo "Description: " . $description .  " <br>\n" ; 
+			echo "UrlMedia: " . $urlMedia .  " <br>\n" ;
+			echo "Comment: " . $commentUser .  " <br>\n" ; 
+			echo "Percentage " . $percentage .  " <br>\n"; 
+			echo "LifeMood " . $lifeMood .  " <br>\n";
+			echo "LifeCareer " . $lifeCareer .  " <br>\n";
+			echo "LifeRelationship " . $lifeRelationships .  " <br>\n";
+			echo "LifeYourself " . $lifeYourself .  " <br>\n";
+			*/
+			//echo "<p>IERI: </p>" + date("l-m-d", mktime(0, 0, 0, date("m"), date("d")-1, date("Y")));
+			
+			$description = htmlspecialchars($description, ENT_QUOTES); 
+			
+			echo $description;
+			$query = "INSERT INTO `post` (`id`, `idUser`, `datePost`, `title`, `subtitle`, `description`, `urlMedia`, `commentUser`, `commentInvestitors`, `percentage`, `lifeMood`, `lifeCareer`, `lifeRelationships`, `lifeYourself`, `type`) VALUES (NULL, '$idUser', '$date', '$title', '$subtitle', '$description', '$urlMedia', '$commentUser', '$commentInvestitors', '$percentage', '$lifeMood', '$lifeCareer', '$lifeRelationships', '$lifeYourself', '$type');";
+				
+			$result = Manager::getDB()->query($query);
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+			
+			return; 
+		}
+		
 		public function deleteGoal($idGoal){
 			
 			$query = "DELETE FROM `goal` WHERE `goal`.`id` = $idGoal";
@@ -116,86 +200,20 @@
 			
 			return;
 		}
-		
-		public function updateGoal($idGoal, $idUser, $title, $description, $dateBegin, $dateFinal, $idLabel, $lifeYourself, $lifeCareer, $lifeRelationships, $percentageInvestor){
-			
-			$title = addslashes($title);
-			$description = addslashes($description);
-			
-			$query = "UPDATE `goal` SET `idUser` = '$idUser', `title` = '$title', `description` = '$description', `dateBegin` = '$dateBegin', `dateFinal` = '$dateFinal', `idLabel` = '$idLabel', `lifeYourself` = '$lifeYourself', `lifeCareer` = '$lifeCareer', `lifeRelationships` = '$lifeRelationships', `percentageInvestor` = '$percentageInvestor' WHERE `goal`.`id` = $idGoal;";
-			
-			
-			$result = Manager::getDB()->query($query);
-			echo $query;
-			if (!$result) {
-				echo "Description Error updateLabel(): " . Manager::getDB()->error . " <br>";
-				echo "Description Error updateLabel(): " . Manager::getDB()->errno . " <br>";
 				
-				exit;
-			}
-			
-			return; 
-		}
-		
-		public function goalAchieved(){
-			
-			//UpdateGoal per settare NameState ad achieeved	
-			//addPost per creare un post con obiettivo raggiunto 
-			//mi prendo l'id e me lo salvo da qualche parte
-			
-			
-			return;
-		}
-		
-		public function updatePost(){
-			
-			//UpdateGoal per settare NameState ad achieeved	
-			//addPost per creare un post con obiettivo raggiunto 
-			//mi prendo l'id e me lo salvo da qualche parte
-			
-			
-			return;
-		}
-		
-		/*
-			MANAGER POST
-		*/
-		public function addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type){
-					
-			$query = "INSERT INTO `post` (`id`, `idUser`, `datePost`, `title`, `subtitle`, `description`, `urlMedia`, `commentUser`, `commentInvestitors`, `percentage`, `lifeMood`, `lifeCareer`, `lifeRelationships`, `lifeYourself`, `type`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-				
-			$stmt = Manager::getDB()->prepare($query);
-			
-			$stmt->bind_param("isssssssddddds", $idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type);
-			
-			if (!$stmt->execute()) {
-				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
-				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
-				
-				exit;
-			}
-			
-			$stmt->close();
-			return; 
-		}
-		
 		public function getPosts($idUser){
 			
-			$query = "SELECT * FROM `post` WHERE `idUser` = ? ORDER BY datePost DESC";
+			$query = "SELECT * FROM `post` WHERE `idUser` = '$idUser' ORDER BY datePost DESC";
 			
-			$stmt = Manager::getDB()->prepare($query);
-			$stmt->bind_param("i", $idUser);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			
+			$result = Manager::getDB()->query($query);
+
 			if (!$result) {
-				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
-				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
 				
 				exit;
 			}
-			if($result->num_rows === 0) exit('No rows');
-
+			
 			while ($obj = $result->fetch_assoc()) {
                 
 				$posts[] = new Post( 
@@ -205,7 +223,7 @@
 									 $obj["dateNewPost"],
 									 $obj["title"],
 									 $obj["subtitle"],
-									 html_entity_decode($obj["description"]),
+									 $obj["description"],
 									 $obj["urlMedia"],
 									 $obj["commentUser"],
 									 $obj["commentInvestitors"],
@@ -219,15 +237,45 @@
             
 			}
 			
-			$stmt->close();
-
 			return $posts;
 		}
 		
 		
-		/*
-			MANAGER LOGIN 
-		*/
+		public function getDays($idUtente){
+			
+			$query = "SELECT * FROM `day` JOIN `investitori` ON day.idInvestitori = investitori.ID WHERE 
+			`idUtente` = '$idUtente' ORDER BY Data DESC";
+			
+			$result = Manager::getDB()->query($query);
+
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+			
+			while ($obj = $result->fetch_assoc()) {
+                
+				$days[] = new Day($obj["ID"],
+								 $obj["Titolo"],
+								 $obj["Sottotitolo"],
+								 $obj["Descrizione"],
+								 $obj["Data"],
+								 $obj["idInvestitori"],
+								 $obj["Commento"],
+								 $obj["percentuale"],
+								 $obj["image"],
+								 $obj["idUtente"]
+								 );
+            
+			}
+			
+			return $days;
+		}
+		
+		
+		
 		public function checkLogin($email, $password){
 			
 			$query = "SELECT * FROM `user` WHERE `email` = '$email' AND `password` = '$password'";
@@ -252,9 +300,6 @@
 		}
 		
 		
-		/*
-			MANAGER USER 
-		*/
 		public function getUserByID($id){
 			
 			$query = "SELECT * FROM `user` WHERE `id` = '$id' ";
@@ -275,9 +320,40 @@
 		}
 		
 		
-		/*
-			MANAGER LABELS 
-		*/
+		
+		public function getPercentage($idUser){
+			
+			$query = "SELECT id, datePost, title, urlMedia, percentage FROM `post` WHERE `idUser` = '$idUser' ORDER BY datePost ASC";
+			
+			$result = Manager::getDB()->query($query);
+
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+			
+			while ($obj = $result->fetch_assoc()) {
+                
+				$posts[] = new Post( 
+								 	 $obj["id"],
+									 
+									 $obj["datePost"],
+									 
+									 $obj["title"],
+									
+									 $obj["urlMedia"],
+								
+									 $obj["percentage"]
+									
+								 );
+            
+			}
+			
+			return $posts;
+		}
+		
 		public function getLabels($idUser){
 			
 			$query = "SELECT DISTINCT(name), labelgoal.id, labelgoal.color FROM `goal`,`labelgoal` WHERE `idUser`=$idUser AND `idLabel` = labelgoal.id";
@@ -301,6 +377,28 @@
 			}
 			
 			return $labels;
+		}
+		
+		public function getColors(){
+			
+			$query = "SELECT * FROM colors";
+			
+			$result = Manager::getDB()->query($query);
+
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+			
+			while ($obj = $result->fetch_assoc()) {
+                
+				$colors[] = $obj["name"];
+								
+			}
+			
+			return $colors;
 		}
 		
 		public function newLabel($name, $color){
@@ -336,75 +434,31 @@
 			return; 
 		}
 		
-		
-		
-		/*
-			GET PERCENTAGE 
-		*/
-		public function getPercentage($idUser){
+		public function updateGoal($idGoal, $idUser, $title, $description, $dateBegin, $dateFinal, $idLabel, $lifeYourself, $lifeCareer, $lifeRelationships, $percentageInvestor){
 			
-			$query = "SELECT id, datePost, title, urlMedia, percentage FROM `post` WHERE `idUser` = '$idUser' ORDER BY datePost ASC";
+			$title = addslashes($title);
+			$description = addslashes($description);
+			
+			$query = "UPDATE `goal` SET `idUser` = '$idUser', `title` = '$title', `description` = '$description', `dateBegin` = '$dateBegin', `dateFinal` = '$dateFinal', `idLabel` = '$idLabel', `lifeYourself` = '$lifeYourself', `lifeCareer` = '$lifeCareer', `lifeRelationships` = '$lifeRelationships', `percentageInvestor` = '$percentageInvestor' WHERE `goal`.`id` = $idGoal;";
+			
 			
 			$result = Manager::getDB()->query($query);
-
+			echo $query;
 			if (!$result) {
-				echo "Description Error: " . Manager::getDB()->error . " <br>";
-				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				echo "Description Error updateLabel(): " . Manager::getDB()->error . " <br>";
+				echo "Description Error updateLabel(): " . Manager::getDB()->errno . " <br>";
 				
 				exit;
 			}
 			
-			while ($obj = $result->fetch_assoc()) {
-                
-				$posts[] = new Post( 
-								 	 $obj["id"],
-									 
-									 $obj["datePost"],
-									 
-									 $obj["title"],
-									
-									 $obj["urlMedia"],
-								
-									 $obj["percentage"]
-									
-								 );
-            
-			}
-			
-			return $posts;
+			return; 
 		}
+		/**
 		
-		
-		/*
-			GENERAL FUNCTIONS
-		*/
-		public function getColors(){
-			
-			$query = "SELECT * FROM colors";
-			
-			$result = Manager::getDB()->query($query);
-
-			if (!$result) {
-				echo "Description Error: " . Manager::getDB()->error . " <br>";
-				echo "Description Error: " . Manager::getDB()->errno . " <br>";
-				
-				exit;
-			}
-			
-			while ($obj = $result->fetch_assoc()) {
-                
-				$colors[] = $obj["name"];
-								
-			}
-			
-			return $colors;
-		}
-		
-		
-		
-		/*
 			MANAGER DATE
-		*/
+		
+		
+		***/
 		function getPercentageInGoal( $dateBegin, $dateFinal, $dateToday ) {
 
 			/*$datetime1 = new DateTime( $dateBegin );
@@ -451,6 +505,7 @@
 			return $percentageGoals;
 		}
 		
+		
 		function getDaysDiff( $dateBegin, $dateFinal ) {
 
 			$datetime1 = new DateTime( $dateBegin );
@@ -461,6 +516,7 @@
 			
 			return $total;
 		}
+		
 		
 		function getMinutesDiff( $dateBegin, $dateFinal ) {
 
@@ -511,6 +567,56 @@
 			
 		}
 		
+		/*
+		public function getRandomWord(){
+			$query = "";
+			
+			$result = Manager::getDB()->query("SELECT * FROM `parole` ORDER BY RAND() LIMIT 1");
+			
+			if (!$result) {
+				echo "Description Error: " + Manager::getDB()->error + " <br>";
+				echo "Description Error: " + Manager::getDB()->errno + " <br>";
+				
+				exit;
+			}
+			
+			while ($obj = $result->fetch_assoc()) {
+                $messaggio = new FraseVocabolario($obj["ID"],$obj["Inglese"],$obj["Italiano"], $obj["Valore"]);
+				
+            }
+			
+			return $messaggio;
+		}
+		
+		
+		public function getPlaylistByLingua($linguaParole, $linguaTraduzione){
+						
+			$query = "SELECT * FROM `playlist` WHERE (`LinguaParole`= '$linguaParole' AND `LinguaTraduzione` = '$linguaTraduzione')";	
+			
+			$result = Manager::getDB()->query($query);	
+			
+			while ($obj = $result->fetch_assoc()) {
+                
+				$playlist[] = new Playlist($obj["ID"], $obj["IDUtente"], $obj["Nome"], $obj["LinguaParole"], $obj["LinguaTraduzione"], $obj["Dettato"], $obj["Valutazione"]);
+            }
+			return $playlist;
+		}
+		
+		
+		public function getParoleByIDPlaylist($id_playlist){
+			
+			$query = "SELECT * FROM `parole` WHERE `IDPlaylist` = $id_playlist";
+			
+			$result = Manager::getDB()->query($query);	
+			
+			while ($obj = $result->fetch_assoc()) {
+                
+				$parole[] = new FraseVocabolario($obj["ID"], $obj["Parola"], $obj["Traduzione"], $obj["InMind"]);
+            }
+			
+			return $parole;
+		}
+		*/
 		
 	}
 

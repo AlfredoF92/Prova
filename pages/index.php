@@ -14,8 +14,11 @@
 	<?php include_once("headerlink.php"); ?>
 	<?php include_once("include_core.php"); ?>
 
-
+	<script src="../node_modules/trumbowyg/dist/trumbowyg.min.js"></script>
+	<link rel="stylesheet" href="../node_modules/trumbowyg/dist/ui/trumbowyg.min.css">
+	
 </head>
+
 
 <?php
 
@@ -39,7 +42,7 @@ $manager = new MyLifeManager();
 
 	<!--										
 		################################################
-
+				  
 					  MODAL INVESTITORS
 
 		################################################							
@@ -114,13 +117,9 @@ $manager = new MyLifeManager();
 			</div>
 		</div>
 	</div>
+	
+	
 	<!-- MODAL INVESTITOR -->
-
-
-
-
-
-
 	<div id="wrapper">
 
 		<?php include_once("nav.php") ?>
@@ -139,14 +138,10 @@ $manager = new MyLifeManager();
 			<?php include_once("fourRectangle.php") ?>
 
 			<!--								
-				################################################
-										
-						      		GOAL
-															
+				################################################						
+						      		GOAL				
 				################################################		
 			-->
-
-
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
@@ -166,9 +161,7 @@ $manager = new MyLifeManager();
 
 			<!--										
 				################################################
-										
-						      CHART INVESTITORS
-															
+						      CHART INVESTITORS										
 				################################################
 									
 			-->
@@ -238,7 +231,22 @@ $manager = new MyLifeManager();
 										<div class="timeline-body">
 
 											<textarea id="p_description" style="width: 100%; height: 200px" name="comment" form="usrform"></textarea>
-
+											<script>
+				
+												$('#p_description').trumbowyg({
+													  btns: [
+																['viewHTML'],
+																['undo', 'redo'], // Only supported in Blink browsers
+																//['formatting'],
+																['strong', 'em'],
+																['justifyLeft', 'justifyCenter',  'justifyFull'],
+																['unorderedList', 'orderedList'],
+																['removeformat'],
+																['fullscreen']
+															],
+													lang: 'it'
+												});	
+											</script>
 											<div style="padding: 20px" class="text-center">
 
 												<div class="row">
@@ -322,9 +330,9 @@ $manager = new MyLifeManager();
 
 										</div>
 										<div class="timeline-body">
-											<p>
+											
 												<?php echo $array_post[$i]->description; ?>
-											</p>
+											
 										</div>
 									</div>
 								</li>

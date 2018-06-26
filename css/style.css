@@ -107,15 +107,15 @@ SLIDEEEEEEEEEEEEEEEER
 	thumb webkit
 */
 
-#p_lifeYourself::-webkit-slider-thumb, #gm_lifeYourself::-webkit-slider-thumb {
+#p_lifeYourself::-webkit-slider-thumb, #gm_lifeYourself::-webkit-slider-thumb, #goal_lifeYourself::-webkit-slider-thumb {
 	background: green;
 }
 
-#p_lifeCareer::-webkit-slider-thumb, #gm_lifeCareer::-webkit-slider-thumb  {
+#p_lifeCareer::-webkit-slider-thumb, #gm_lifeCareer::-webkit-slider-thumb, #goal_lifeCareer::-webkit-slider-thumb  {
 	background: blue;
 }
 
-#p_lifeRelationships::-webkit-slider-thumb, #gm_lifeRelationships::-webkit-slider-thumb {
+#p_lifeRelationships::-webkit-slider-thumb, #gm_lifeRelationships::-webkit-slider-thumb, #goal_lifeRelationships::-webkit-slider-thumb {
 	background: red;
 }
 
@@ -123,7 +123,7 @@ SLIDEEEEEEEEEEEEEEEER
 	background: black;
 }
 
-#p_percentage::-webkit-slider-thumb, #gm_percentage::-webkit-slider-thumb {
+#p_percentage::-webkit-slider-thumb, #gm_percentage::-webkit-slider-thumb, #goal_percentage::-webkit-slider-thumb {
 	background: blue;
 }
 
@@ -131,15 +131,15 @@ SLIDEEEEEEEEEEEEEEEER
 	thumb mozilla
 */
 
-#p_lifeYourself::-moz-range-thumb, #gm_lifeYourself::-moz-range-thumb {
+#p_lifeYourself::-moz-range-thumb, #gm_lifeYourself::-moz-range-thumb,#goal_lifeYourself::-moz-range-thumb {
 	background: green;
 }
 
-#p_lifeCareer::-moz-range-thumb, #gm_lifeCareer::-moz-range-thumb {
+#p_lifeCareer::-moz-range-thumb, #gm_lifeCareer::-moz-range-thumb, #goal_lifeCareer::-moz-range-thumb {
 	background: blue;
 }
 
-#p_lifeRelationships::-moz-range-thumb, #gm_lifeRelationships::-moz-range-thumb {
+#p_lifeRelationships::-moz-range-thumb, #gm_lifeRelationships::-moz-range-thumb, #goal_lifeRelationships::-moz-range-thumb {
 	background: red;
 }
 
@@ -147,7 +147,7 @@ SLIDEEEEEEEEEEEEEEEER
 	background: black;
 }
 
-#p_percentage::-moz-range-thumb, #gm_percentage::-moz-range-thumb {
+#p_percentage::-moz-range-thumb, #gm_percentage::-moz-range-thumb, #goal_percentage::-moz-range-thumb {
 	background: blue;
 }
 

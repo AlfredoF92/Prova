@@ -18,9 +18,6 @@
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
 				
-
-
-
 					<ul class="dropdown-menu dropdown-messages">
 						<li>
 							<a href="#">
@@ -29,9 +26,7 @@
 									<span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
-								
-
-
+							
 
 								</div>
 								<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
@@ -273,15 +268,15 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
-							
-
-
-
+					
 							</div>
 							<!-- /input-group -->
 						</li>
 						<li>
-							<a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashsdboard</a>
+							<a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashsdboard</a>
+						</li>
+						<li>
+							<a href="goals.php"><i class="fa fa-dashboard fa-fw"></i> Goals</a>
 						</li>
 						<li>
 							<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

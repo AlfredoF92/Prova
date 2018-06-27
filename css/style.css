@@ -107,24 +107,24 @@ SLIDEEEEEEEEEEEEEEEER
 	thumb webkit
 */
 
-#p_lifeYourself::-webkit-slider-thumb, #gm_lifeYourself::-webkit-slider-thumb, #goal_lifeYourself::-webkit-slider-thumb {
+.slider-lifeYourself::-webkit-slider-thumb, #p_lifeYourself::-webkit-slider-thumb, #gm_lifeYourself::-webkit-slider-thumb, #goal_lifeYourself::-webkit-slider-thumb {
 	background: green;
 }
 
-#p_lifeCareer::-webkit-slider-thumb, #gm_lifeCareer::-webkit-slider-thumb, #goal_lifeCareer::-webkit-slider-thumb  {
+.slider-lifeCareer::-webkit-slider-thumb, #p_lifeCareer::-webkit-slider-thumb, #gm_lifeCareer::-webkit-slider-thumb, #goal_lifeCareer::-webkit-slider-thumb  {
 	background: blue;
 }
 
-#p_lifeRelationships::-webkit-slider-thumb, #gm_lifeRelationships::-webkit-slider-thumb, #goal_lifeRelationships::-webkit-slider-thumb {
+.slider-lifeRelationships::-webkit-slider-thumb, #p_lifeRelationships::-webkit-slider-thumb, #gm_lifeRelationships::-webkit-slider-thumb, #goal_lifeRelationships::-webkit-slider-thumb {
 	background: red;
 }
 
-#p_lifeMood::-webkit-slider-thumb {
-	background: black;
+.slider-lifeMood::-webkit-slider-thumb, #p_lifeMood::-webkit-slider-thumb, #goal_lifeMood::-webkit-slider-thumb {
+	background: rgba(126,101,0,1.00);
 }
 
-#p_percentage::-webkit-slider-thumb, #gm_percentage::-webkit-slider-thumb, #goal_percentage::-webkit-slider-thumb {
-	background: blue;
+.slider-percentage::-webkit-slider-thumb, #p_percentage::-webkit-slider-thumb, #gm_percentage::-webkit-slider-thumb, #goal_percentage::-webkit-slider-thumb {
+	background: black;
 }
 
 /*
@@ -143,7 +143,7 @@ SLIDEEEEEEEEEEEEEEEER
 	background: red;
 }
 
-#p_lifeMood::-moz-range-thumb {
+#p_lifeMood::-moz-range-thumb, #goal_lifeMood::-moz-range-thumb {
 	background: black;
 }
 
@@ -162,4 +162,13 @@ SLIDEEEEEEEEEEEEEEEER
 
 #label_slider_R{
 	color: red; 
+}
+
+
+
+#modalCommentsInvestitor div:nth-child(2){
+	font-size: 15px;
+}
+#modalCommentsInvestitor div:nth-child(1){
+	font-size: 15px;
 }

@@ -17,6 +17,8 @@
 			header( "location: http://localhost/iambrand/iambrand/pages/login.php" );
 		}
 
+
+		
 		/*
 		########## GET $_REQUEST #########
 		*/
@@ -25,7 +27,6 @@
 		//$subtitle = $_REQUEST[ 'subtitle' ];
 		$description = $_REQUEST[ 'description' ];
 
-		
 		$idlabelColor = "";
 		$newLabel = ""; 
 		$newLabelColor = ""; 
@@ -39,18 +40,6 @@
 		
 		$percentage = $_REQUEST[ 'percentage' ];	
 		
-		/*echo "Title: " . $title . "<br>";
-		echo "description: " . $description . "<br>";
-		
-		
-		
-		echo "dateBegin: " . $dateBegin . "<br>";
-		echo "dateFinal: " . $dateFinal . "<br>";
-		echo "lifeCareer: " . $lifeCareer . "<br>";
-		echo "lifeRelant: " . $lifeRelationships . "<br>";
-		echo "lifeYourself: " . $lifeYourself . "<br>";
-		echo "percentage: " . $percentage . "<br>";
-*/
 		
 		$labelOperation = $_REQUEST[ 'labelOperation' ];	
 		

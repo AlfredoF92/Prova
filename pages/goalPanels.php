@@ -51,7 +51,7 @@
 
 					</div>
 					<div class="col-lg-2 text-right">
-						<p id="obiettivo-percentuale">+30%</p>
+						<p id="obiettivo-percentuale">+<?php echo $array_goal[$i]->percentageInvestor; ?>%</p>
 
 					</div>
 				</div>

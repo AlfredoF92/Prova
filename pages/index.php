@@ -19,7 +19,6 @@
 	
 </head>
 
-
 <?php
 
 session_start();
@@ -42,9 +41,7 @@ $manager = new MyLifeManager();
 
 	<!--										
 		################################################
-				  
 					  MODAL INVESTITORS
-
 		################################################							
 	-->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,7 +61,7 @@ $manager = new MyLifeManager();
 
 					<div class="row">
 						<div class="col-lg-2">
-							<span>Come ti senti?</span>
+							<span>Mood</span>
 						</div>
 
 						<div class="col-lg-5">
@@ -94,16 +91,16 @@ $manager = new MyLifeManager();
 
 					</div>
 
-					<div class="row" style="padding-top: 20px">
+					<div id="commentsInvestitors" class="row" style="padding-top: 20px">
 
 						<div class="col-lg-4">
-							<span>"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. "</span>
+							<span id="comment1">"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. "</span>
 						</div>
 						<div class="col-lg-4">
-							<span>"Ut enim ad minim veniam! amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna"</span>
+							<span id="comment2">"Ut enim ad minim veniam! amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna"</span>
 						</div>
 						<div class="col-lg-4">
-							<span>"Ut enim ad minim veniam! Ut enim ad minim veniam!"</span>
+							<span id="comment3">"Ut enim ad minim veniam! Ut enim ad minim veniam!"</span>
 						</div>
 					</div>
 
@@ -669,6 +666,7 @@ $manager = new MyLifeManager();
 
 
 	<?php include_once("footerlinkscript.html")?>
+	<?php include_once("commentIT.html")?>
 	
 	<!-- CARICA IMAGIEN-->
 	<script>
@@ -701,6 +699,7 @@ $manager = new MyLifeManager();
 					datiForm.append( 'lifeCareer', $( "#p_lifeCareer" ).val() );
 					datiForm.append( 'lifeRelationships', $( "#p_lifeRelationships" ).val() );
 					datiForm.append( 'lifeYourself', $( "#p_lifeYourself" ).val() );
+					datiForm.append( 'type', "day" );
 					//datiForm.append( 'type', $( "#p_type" ).val() );
 
 					$.ajax( {
@@ -731,12 +730,11 @@ $manager = new MyLifeManager();
 			);
 		
 		});
-
+		
 		
 	</script>
-
-
-
+	
+	
 </body>
 
 </html>

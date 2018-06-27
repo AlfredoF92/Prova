@@ -49,7 +49,7 @@ $idUser = $_SESSION[ 'id' ];
 
 			</h4>
 		</div>
-		<div class="modal-body">
+		<div id="modalGoalBody" class="modal-body">
 
 
 			<div id="bodyModalGoal">
@@ -75,18 +75,18 @@ $idUser = $_SESSION[ 'id' ];
 				<div style="line-height: 10px">
 					<div class="row">
 						<div class="col-lg-6">
-							 <strong>Data inizio:</strong>
-								<?php echo $goal->dateBegin; ?> 
+							<strong>Data inizio:</strong>
+							<?php echo $goal->dateBegin; ?>
 						</div>
-						<div class="col-lg-6 text-right" >
+						<div class="col-lg-6 text-right">
 							<strong>Data fine:</strong>
-								<?php echo $goal->dateFinal; ?> 
+							<?php echo $goal->dateFinal; ?>
 						</div>
 
 					</div>
 				</div>
 				<hr>
-				<div class="row" >
+				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">
 							<div style="padding: 20px" class="text-center">
@@ -128,14 +128,14 @@ $idUser = $_SESSION[ 'id' ];
 					</div>
 					<div class="col-lg-6">
 						<div class="row">
-							
+
 							<div class="col-lg-12">
 								<div style="display: none" class="slidecontainer">
 									<input disabled type="range" min="-10" max="10" value="<?php echo $goal->percentageInvestor; ?>" class="slider" id="goal_percentage">
 								</div>
 							</div>
 							<div class="col-lg-12 text-right">
-								<span style="font-size: 50px">+10%</span>
+								<span style="font-size: 50px">+<?php echo $goal->percentageInvestor; ?>%</span>
 							</div>
 						</div>
 
@@ -146,8 +146,8 @@ $idUser = $_SESSION[ 'id' ];
 			</div>
 
 			<!--		
-						MODAL TO MODIFY			
-					-->
+				MODAL TO MODIFY			
+			-->
 			<div id="bodyModalGoalToModify" style="display: none;">
 				<form>
 					<div class="form-group">
@@ -163,14 +163,11 @@ $idUser = $_SESSION[ 'id' ];
 				</form>
 
 				<!--
-							MANAGER LABEL
-													
-						-->
+					MANAGER LABEL								
+				-->
 				<?php
-
 				$array_labels = $myLife_manager->getLabels( $idUser );
 				$max_labels = sizeof( $array_labels );
-
 				?>
 
 				<div class="form-group">
@@ -333,12 +330,15 @@ $idUser = $_SESSION[ 'id' ];
 									</div>
 									<div class="col-lg-9 text-right">
 										<div class="slidecontainer">
-											<input type="range" min="-10" max="10" value="<?php echo $goal->percentageInvestor; ?>" class="slider" id="gm_percentage">
+											<input type="range" min="1" max="12" value="<?php echo $goal->percentageInvestor; ?>" class="slider" id="gm_percentage">
 										</div>
-										<span style="font-size: 35px;">+10%</span>
-
+										
 									</div>
 								</div>
+								<div class="row text-right">
+									<p style="font-size: 35px;" id="gm_percentageSpan">+<?php echo $goal->percentageInvestor; ?>%</p>
+								</div>
+								
 							</div>
 
 						</div>
@@ -346,8 +346,9 @@ $idUser = $_SESSION[ 'id' ];
 				</div>
 
 			</div>
+
 			<!-- BODY -->
-			<div class="modal-footer">
+			<div id="footerModalGoal" class="modal-footer">
 
 
 				<button type="button" class="btn btn-default" data-dismiss="modal">Annulla Modifiche</button>
@@ -357,9 +358,119 @@ $idUser = $_SESSION[ 'id' ];
 				<button id="saveGoal" type="button" class="btn btn-warning">Salva</button>
 
 				<button id="goalFailed" class="btn btn-danger">Ho fallito</button>
-				<button id="publicGoal" class="btn btn-success">Obiettivo superato</button>
-
+				<button id="goalSuccess" class="btn btn-success">Obiettivo superato</button>
+				
 			</div>
+
+			<div id="rowMoodGoal" class="modal-footer-mood" style="display: none">
+				
+				<div class="row text-center">
+					<p class="titleMood" style="font-size: 30px; font-weight: 800">Obiettivo </p>
+				</div>
+				<div class="row" style="padding: 20px">
+					
+					<img class="center-block" src="../image/1/image/investitori.jpg" width="250" height="250" alt=""/>
+					
+					<div class="row" id="modalCommentsInvestitor">
+						<div class="col-lg-4">
+							"Lorem ipsum dolor sit amet, consec"
+						</div>
+						<div class="col-lg-4">
+														"Lorem ipsum dolor sit amet, consec"
+						</div>
+						<div class="col-lg-4">
+														"Lorem ipsum dolor sit amet, consec"
+						</div>
+					</div>
+				</div>
+				
+				<div class="row" style="padding: 20px">
+					
+					<div class="form-group">
+						<label for="comment">Un commento per gli investitori</label>
+						<textarea class="form-control" rows="1" id="goal_commentUser"></textarea>
+					</div>
+					
+					<div class="col-lg-2">
+						<span>Mood</span>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="slidecontainer-mood">
+							<input type="range" min="-10" max="10" value="0" class="slider" id="goal_lifeMood">
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<span id="answer-mood">Mi sento una merda. Ok?</span>
+					</div>
+				</div>
+				<hr>
+				
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="form-group">
+							<div class="text-center">
+								<div class="row">
+									<div class="col-lg-3">
+										<span id="label_slider_Y">Yourself</span>
+									</div>
+									<div class="col-lg-9">
+										<div class="slidecontainer">
+											<input disabled type="range" min="-10" max="10" value="<?php echo '-'.$goal->lifeYourself; ?>" class="slider slider-lifeYourself" id="goalP_lifeYourself">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<span id="label_slider_C">Career</span>
+									</div>
+									<div class="col-lg-9">
+										<div class="slidecontainer">
+											<input disabled type="range" min="-10" max="10" value="<?php echo '-'.$goal->lifeCareer; ?>" class="slider slider-lifeCareer" id="goalP_lifeCareer">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<span id="label_slider_R">Relationship</span>
+									</div>
+									<div class="col-lg-9">
+										<div class="slidecontainer">
+											<input disabled type="range" min="-10" max="10" value="<?php echo '-'.$goal->lifeRelationships; ?>" class="slider slider-lifeRelationships" id="goalP_lifeRelationships">
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+					</div>
+					<div class="col-lg-6">
+						<div class="row">
+
+							<div class="col-lg-12">
+								<div style="display: none" class="slidecontainer">
+									<input disabled type="range" min="-10" max="10" value="<?php echo $goal->percentageInvestor; ?>" class="slider" id="goal_percentage">
+								</div>
+							</div>
+							<div class="col-lg-12 text-right">
+								<span style="font-size: 50px" id="percentageSpan">+<?php echo $goal->percentageInvestor; ?>%</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row" style="padding: 30px">
+					<div class="row text-right" >
+							<button type="button" class="btn btn-default" data-dismiss="modal">Annulla Modifiche</button>
+						<button id="addPostByGoal" class="btn btn-warning">INVIA</button>
+					</div>
+				</div>
+			</div>
+
+
 			<div id="answerHtml"></div>
 		</div>
 
@@ -368,11 +479,12 @@ $idUser = $_SESSION[ 'id' ];
 
 	<script>
 		/*
-							0 = label Goal
-							1 = label New
-							2 = label Edit
-						*/
+					0 = label Goal
+					1 = label New
+					2 = label Edit
+				*/
 		var labelOperation = 0;
+		var resultGoal = -1;
 		$( "#saveGoal" ).hide();
 		$( "#deleteGoal" ).hide();
 
@@ -417,14 +529,52 @@ $idUser = $_SESSION[ 'id' ];
 			$( "#bodyModalGoal" ).hide();
 			$( "#bodyModalGoalToModify" ).show();
 			$( "#buttonModifyGoal" ).hide();
-			$( "#publicGoal" ).hide();
+			$( "#goalSuccess" ).hide();
 			$( "#goalFailed" ).hide();
 			$( "#deleteGoal" ).show();
 			$( "#saveGoal" ).show();
 
 			labelOperation = 0;
 		} );
-
+		
+		$("#goalFailed").click( function (){
+			$( "#rowMoodGoal" ).show();
+			$( "#rowMoodGoal .titleMood" ).text("Obiettivo fallito");
+			$("#bodyModalGoal").hide();
+			$("#footerModalGoal").hide();
+			resultGoal = 0;
+			
+			$("#goalP_lifeYourself").val("-" + $("#goal_lifeYourself").val());
+			$("#goalP_lifeRelationships").val("-" + $("#goal_lifeRelationships").val());
+			$("#goalP_lifeCareer").val("-" + $("#goal_lifeCareer").val());
+			$("#percentageSpan").html("-12%");
+			
+			$("#modalCommentsInvestitor div:nth-child(1)").html(commentInvestitor[1]);
+		});
+		
+		$("#goalSuccess").click( function (){
+			$( "#rowMoodGoal" ).show();
+			$( "#rowMoodGoal .titleMood" ).text("Obiettivo superato");
+			$("#bodyModalGoal").hide();
+			$("#footerModalGoal").hide();
+			
+			$("#goalP_lifeYourself").val($("#goal_lifeYourself").val());
+			$("#goalP_lifeRelationships").val($("#goal_lifeRelationships").val());
+			$("#goalP_lifeCareer").val($("#goal_lifeCareer").val());
+			$("#percentageSpan").html("+" + <?php echo $goal->percentageInvestor; ?> + "%");
+			resultGoal = 1;
+		});
+		
+		
+		$("#gm_percentage").change(function(){
+		
+			$("#gm_percentageSpan").text("+" + $("#gm_percentage").val() + "%");
+		})
+		
+		$("#send").click( function (){
+				
+		});
+		
 		$( "#deleteGoal" ).click( function () {
 			var datiForm = new FormData();
 			datiForm.append( 'idGoal', <?php echo $idGoal; ?> );
@@ -518,7 +668,7 @@ $idUser = $_SESSION[ 'id' ];
 					setTimeout( function () {
 						window.location.reload()
 					}, 1000 );
-
+						
 				},
 				error: function () {
 					alert( "Chiamata fallita!!!" );
@@ -551,7 +701,53 @@ $idUser = $_SESSION[ 'id' ];
 			selectorColor = '#divEditLabel option[value=' + color + ']';
 			$( selectorColor ).attr( 'selected', 'selected' );
 
+		} );
+		
+		
+		$( "#addPostByGoal" ).click( function () {
 
+			var datiForm = new FormData();
+			datiForm.append( 'idGoal', <?php echo $idGoal; ?> );
+			datiForm.append( 'commentUser', $("#goal_commentUser").val() );
+			datiForm.append( 'mood',  $("#goal_mood").val() );
+			datiForm.append( 'resultGoal',  resultGoal );
+			datiForm.append( 'type',  "goal" );
+			
+			//idGoal = $( this ).attr( "id" );
+			//$("#modalGoal .modal-title").html("Ciao");	
+			$.ajax( {
+				url: "../core/control/addDay.php",
+				type: 'POST', //Le info testuali saranno passate in POST
+				data: datiForm, //I dati, forniti sotto forma di oggetto FormData
+				cache: false,
+				processData: false, //Serve per NON far convertire l’oggetto
+				//FormData in una stringa, preservando il file
+				contentType: false, //Serve per NON far inserire automaticamente
+				//un content type errato
+				success: function ( risposta ) {
+					//alert(risposta);
+					$('#answerHtml').html(risposta);
+
+					// imposto un refresh di pagina dopo 60 secondi
+
+					/*setTimeout( function () {
+						window.location.reload()
+					}, 1000 );*/
+
+				},
+				error: function () {
+					alert( "Chiamata fallita!!!" );
+				}
+			} );
 
 		} );
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</script>

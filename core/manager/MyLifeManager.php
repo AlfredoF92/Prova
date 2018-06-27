@@ -29,16 +29,20 @@
 		
 		public function getGoals($idUser){
 			
-				$query = "SELECT goal.id, idUser, title, description, dateBegin, dateFinal, idLabel, idNameState, lifeYourself, lifeCareer, lifeRelationships, percentageInvestor, name, color FROM `goal`,`labelgoal` WHERE `idUser`=$idUser AND `idLabel` = labelgoal.id";
+				$query = "SELECT goal.id, idUser, title, description, dateBegin, dateFinal, idLabel, idNameState, lifeYourself, lifeCareer, lifeRelationships, percentageInvestor, name, color FROM `goal`,`labelgoal` WHERE `idUser`= ? AND `idNameState`= 'open' AND `idLabel` = labelgoal.id" ;
+				 
+				$stmt = Manager::getDB()->prepare($query);
+				$stmt->bind_param("i", $idUser);
+				$stmt->execute();
+				$result = $stmt->get_result();
 				
-				$result = Manager::getDB()->query($query);
 				if (!$result) {
 					echo "Description Error: " . Manager::getDB()->error . " <br>";
 					echo "Description Error: " . Manager::getDB()->errno . " <br>";
 
 					exit;
 				}
-			
+				
 				$goals = ""; 
 				while ($obj = $result->fetch_assoc()) {
 					
@@ -97,7 +101,6 @@
 										 $obj["percentageInvestor"]
 								);
 				
-			
 				return $goal; 
 			
 		}
@@ -126,7 +129,7 @@
 			
 			
 			$result = Manager::getDB()->query($query);
-			echo $query;
+			
 			if (!$result) {
 				echo "Description Error updateLabel(): " . Manager::getDB()->error . " <br>";
 				echo "Description Error updateLabel(): " . Manager::getDB()->errno . " <br>";
@@ -135,6 +138,24 @@
 			}
 			
 			return; 
+		}
+		
+		public function updateGoalState($idGoal, $idNameState, $dateLastEdit){
+			
+			$query = "UPDATE `goal` SET `idNameState` = ?, `dateLastEdit` = ? WHERE `goal`.`id` = ?";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("ssi", $idNameState, $dateLastEdit, $idGoal);
+			
+			if (!$stmt->execute()) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+			
+			
+			return;
 		}
 		
 		public function goalAchieved(){

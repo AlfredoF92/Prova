@@ -166,9 +166,177 @@ SLIDEEEEEEEEEEEEEEEER
 
 
 
+
 #modalCommentsInvestitor div:nth-child(2){
 	font-size: 15px;
 }
 #modalCommentsInvestitor div:nth-child(1){
 	font-size: 15px;
+}
+
+/* ARTICOLI */
+.panel-body-articles p{
+	font-size: 12px;
+}
+
+.color-yourself{
+	color: darkgreen;
+}
+
+.color-career{
+	color: darkblue;
+}
+
+.color-relationships{
+	color: darkred;
+}
+
+.color-percentage{
+	color: black;
+}
+
+.modal.modal-wide .modal-dialog {
+  width: 70%;
+}
+
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+
+.info{
+	font-size: 10px;
+	font-style: italic;
+	color: rgba(63,63,63,1.00);
+	padding-bottom: 10px;
+}
+
+#imgInvestitor {
+	position: relative;
+}
+
+
+#imgInvestitor .newsTitle, #imgInvestitor .title, #imgInvestitor .description{
+	
+	transform: rotate(-12.4deg);
+	
+}
+
+
+
+#imgInvestitor .newsTitle {
+    position: absolute;
+    top: 47px;
+    left: 50px;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+#imgInvestitor .title {
+    position: absolute;
+    top: 76px;
+    left: 105px;
+    font-weight: 700;
+    font-size: 14px;
+	width: 120px;
+    overflow: hidden;
+}
+
+#imgInvestitor .description{
+	position: absolute;
+    top: 95px;
+    left: 111px;
+    
+    font-size: 8px;
+    line-height: 7px;
+    background-color: #f0f0f0;
+    width: 124px;
+    height: 50px;
+    overflow: hidden;
+}
+
+
+
+#comment1{
+	
+	position: absolute;
+    top: 420px;
+    left: 50px;
+    width: 100px;
+	transform: rotate(-3deg);
+}
+
+#comment2{
+	
+	position: absolute;
+    top: 403px;
+    left: 234px;
+    width: 100px;
+	transform: rotate(-3deg);
+    line-height: 17px;
+	
+}
+
+
+#comment3{
+	
+	position: absolute;
+    top: 421px;
+    left: 422px;
+    width: 100px;
+	transform: rotate(-6deg);
+	
+}
+
+#legendGraphLife li{
+	list-style-position: inside;
+	margin-left: 23px;
+	font-size: 12px;
+}
+
+#legendGraphLife .titleGraphUL{
+	font-weight: 700;
+	font-size: 14px;
+	border-bottom: 1px solid;
+}
+
+.panel-rect-shadow{
+	border: 1px solid;
+    /* padding: 10px; */
+    box-shadow: 4px 5px 1px #e9e9e9;
+}
+
+.panel-rect-1{
+	background-color: #000332;
+	color: white;
+}
+
+.panel-rect-2{
+	background-color: #002e07;
+	color: white;
+}
+
+.panel-rect-3{
+	background-color: #590101;
+	color: white;
+}
+
+.panel-rect-4{
+	background-color: #006476;
+	color: white;
+}
+
+
+.carousel-phrase{
+	width: 100%;
+}
+
+
+.panel-default > .panel-heading {
+	
+	color: #fff;
+    background-color: #2f2f2f;
+    border-color: #000;
+    height: 30px;
+    border: 5px;
+	padding: 5px 10px;
 }

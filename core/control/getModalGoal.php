@@ -31,11 +31,12 @@ $idUser = $_SESSION[ 'id' ];
 				$idModal = $_REQUEST[ "idGoal" ];
 				//echo strpos($idModal, "G");
 				$idGoal = substr( $idModal, 0, strpos( $idModal, "G" ) );
+				
 				$myLife_manager = new MyLifeManager();
 				$goal = $myLife_manager->getGoal( $idGoal );
 
 
-				echo $goal->title;
+				echo "Obiettivo raggiunto - " . $goal->title;
 
 				$dateBegin = $goal->dateBegin;
 				$dateFinal = $goal->dateFinal;
@@ -364,48 +365,56 @@ $idUser = $_SESSION[ 'id' ];
 
 			<div id="rowMoodGoal" class="modal-footer-mood" style="display: none">
 				
-				<div class="row text-center">
-					<p class="titleMood" style="font-size: 30px; font-weight: 800">Obiettivo </p>
-				</div>
-				<div class="row" style="padding: 20px">
-					
-					<img class="center-block" src="../image/1/image/investitori.jpg" width="250" height="250" alt=""/>
-					
-					<div class="row" id="modalCommentsInvestitor">
-						<div class="col-lg-4">
-							"Lorem ipsum dolor sit amet, consec"
-						</div>
-						<div class="col-lg-4">
-														"Lorem ipsum dolor sit amet, consec"
-						</div>
-						<div class="col-lg-4">
-														"Lorem ipsum dolor sit amet, consec"
-						</div>
-					</div>
+				<div class="row text-center" style="display: none">
+					<p class="titleMood" style="font-size: 30px; font-weight: 800"> </p>
 				</div>
 				
+				<div id="imgInvestitor">
+						<span class="newsTitle">NEWS</span>
+						<span class="title">OBIETTIVO SUPERATO</span>
+						<span class="description"></span>
+						<div id="commentsInvestitors" class="row" >
+							<div>
+								<span id="comment1">"Sei un buon annulla!"</span>
+							</div>
+							<div>
+								<span id="comment2">"Vaffanculo! Non investirò mai più su di te. "</span>
+							</div>
+							<div >
+								<span id="comment3">"Ottimo amico. Vai avanti così."</span>
+							</div>
+						</div>
+						
+						<img class="center-block" src="../image/demo/Fumetto_Investitore_05.jpg" width="100%" height="auto" alt=""/>
+						
+					</div>
+				<hr>
 				<div class="row" style="padding: 20px">
 					
 					<div class="form-group">
-						<label for="comment">Un commento per gli investitori</label>
-						<textarea class="form-control" rows="1" id="goal_commentUser"></textarea>
+						
+						<textarea class="form-control" rows="1" id="goal_commentUser"
+							
+								placeholder="Lascia un commento per gli investitori."
+								style="height: 80px"
+						></textarea>
 					</div>
-					
+					<div style="display: none">
 					<div class="col-lg-2">
 						<span>Mood</span>
 					</div>
 
 					<div class="col-lg-5">
 						<div class="slidecontainer-mood">
-							<input type="range" min="-10" max="10" value="0" class="slider" id="goal_lifeMood">
+							<input type="range" min="-10" max="10" value="0" class="slider slider-lifeMood" id="goal2_lifeMood">
 						</div>
 					</div>
 					<div class="col-lg-5">
-						<span id="answer-mood">Mi sento una merda. Ok?</span>
+						<span id="answerGoal-mood">Mi sento una merda. Ok?</span>
+					</div>
 					</div>
 				</div>
-				<hr>
-				
+			
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">
@@ -743,11 +752,13 @@ $idUser = $_SESSION[ 'id' ];
 		} );
 		
 		
-		
-		
-		
-		
-		
+		$("#goal2_lifeMood").change(function(){
+
+			comments = moodComments[$("#goal2_lifeMood").val()].split(";");
+			$("#answerGoal-mood").html( '"' + comments[0] + '"');
+			
+		});
 		
 		
 	</script>
+	

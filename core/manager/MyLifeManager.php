@@ -251,10 +251,13 @@
 		*/
 		public function checkLogin($email, $password){
 			
-			$query = "SELECT * FROM `user` WHERE `email` = '$email' AND `password` = '$password'";
-				
-			$result = Manager::getDB()->query($query);
+			$query = "SELECT * FROM `user` WHERE `email` = ? AND `password` = ?";
 			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("ss", $email, $password);
+			$stmt->execute();
+			
+			$result = $stmt->get_result();
 			if (!$result) {
 				echo "Description Error: " . Manager::getDB()->error . " <br>";
 				echo "Description Error: " . Manager::getDB()->errno . " <br>";
@@ -262,16 +265,122 @@
 				exit;
 			}
 			
+			if($stmt->affected_rows === 0) 
+				return new Utente(-1, -1, -1, -1, -1);;
+			
+			
 			$obj = $result->fetch_assoc();
-						
+			
+			$user = new Utente($obj["id"], $obj["username"], $obj["email"], $obj["password"], $obj["role"]);
+			
+			/*
+			$obj = $result->fetch_assoc();
 			if($obj["id"]==""){
 				return 0; 
-			}
+			}*/
 			
 			//$login = new Utente($obj["ID"], $obj["email"], $obj["Username"], $obj["Password"] );
-			return $obj["id"];
+			return $user;
 		}
 		
+		/*
+			MANAGER LOGIN 
+		*/
+		public function getSumLifeRelationships($idUtente){
+			
+			$query = "SELECT SUM(lifeRelationships) FROM `post` WHERE idUser = ?";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("i", $idUtente);
+			$stmt->execute();
+			
+			$result = $stmt->get_result();
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+						
+			$obj = $result->fetch_array(MYSQLI_NUM);
+			
+				
+			/*
+				$obj = $result->fetch_assoc();
+				if($obj["id"]==""){
+					return 0; 
+				}
+			*/
+			
+			//$login = new Utente($obj["ID"], $obj["email"], $obj["Username"], $obj["Password"] );
+			return $obj[0];
+		}
+		
+		/*
+			MANAGER LOGIN 
+		*/
+		public function getSumLifeCareer($idUtente){
+			
+			$query = "SELECT SUM(lifeCareer) FROM `post` WHERE idUser=?";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("i", $idUtente);
+			$stmt->execute();
+			
+			$result = $stmt->get_result();
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+						
+			$obj = $result->fetch_array(MYSQLI_NUM);
+				
+			/*
+				$obj = $result->fetch_assoc();
+				if($obj["id"]==""){
+					return 0; 
+				}
+			*/
+			
+			//$login = new Utente($obj["ID"], $obj["email"], $obj["Username"], $obj["Password"] );
+			return $obj[0];
+		}
+		
+		
+		/*
+			MANAGER LOGIN 
+		*/
+		public function getSumLifeYourself($idUtente){
+			
+			$query = "SELECT SUM(lifeYourself) FROM `post` WHERE idUser=?";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("i", $idUtente);
+			$stmt->execute();
+			
+			$result = $stmt->get_result();
+			if (!$result) {
+				echo "Description Error: " . Manager::getDB()->error . " <br>";
+				echo "Description Error: " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}
+						
+			$obj = $result->fetch_array(MYSQLI_NUM);
+			
+				
+			/*
+				$obj = $result->fetch_assoc();
+				if($obj["id"]==""){
+					return 0; 
+				}
+			*/
+			
+			//$login = new Utente($obj["ID"], $obj["email"], $obj["Username"], $obj["Password"] );
+			return $obj[0];
+		}
 		
 		/*
 			MANAGER USER 
@@ -290,7 +399,7 @@
 			}
 			
 			$obj = $result->fetch_assoc();
-			$utente = new Utente($obj["id"],  $obj["username"], $obj["email"], $obj["password"] );
+			$utente = new Utente($obj["id"],  $obj["username"], $obj["email"], $obj["password"], $obj["role"] );
 			
 			return $utente;
 		}

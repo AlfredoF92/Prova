@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="controller.bar.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423491648988" remote="131748354000000000" Dst="2" />
+<file name="controller.bubble.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423492498463" remote="131748354000000000" Dst="2" />
+<file name="controller.doughnut.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423493286884" remote="131748354000000000" Dst="2" />
+<file name="controller.line.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423494246294" remote="131748354000000000" Dst="2" />
+<file name="controller.polarArea.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423495075784" remote="131748354000000000" Dst="2" />
+<file name="controller.radar.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423495885285" remote="131748354000000000" Dst="2" />
+<file name="controller.scatter.test.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423496584860" remote="131748354000000000" Dst="2" />
+<file name="core.controller.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423497704175" remote="131748354000000000" Dst="2" />
+<file name="core.datasetController.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423498753540" remote="131748354000000000" Dst="2" />
+<file name="core.element.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423499463074" remote="131748354000000000" Dst="2" />
+<file name="core.layouts.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423502181440" remote="131748354000000000" Dst="2" />
+<file name="core.helpers.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423500412479" remote="131748354000000000" Dst="2" />
+<file name="core.interaction.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423501381878" remote="131748354000000000" Dst="2" />
+<file name="core.plugin.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423503134520" remote="131748354000000000" Dst="2" />
+<file name="core.scale.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423503818769" remote="131748354000000000" Dst="2" />
+<file name="core.scaleService.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423504578309" remote="131748354000000000" Dst="2" />
+<file name="core.ticks.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423505507755" remote="131748354000000000" Dst="2" />
+<file name="element.arc.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423507288420" remote="131748354000000000" Dst="2" />
+<file name="core.tooltip.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423506437123" remote="131748354000000000" Dst="2" />
+<file name="element.rectangle.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423509916798" remote="131748354000000000" Dst="2" />
+<file name="element.point.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423509077259" remote="131748354000000000" Dst="2" />
+<file name="element.line.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423508177839" remote="131748354000000000" Dst="2" />
+<file name="global.deprecations.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423511812465" remote="131748354000000000" Dst="2" />
+<file name="global.namespace.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423512522023" remote="131748354000000000" Dst="2" />
+<file name="global.defaults.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423510712580" remote="131748354000000000" Dst="2" />
+<file name="helpers.canvas.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423513198181" remote="131748354000000000" Dst="2" />
+<file name="helpers.core.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423514755888" remote="131748354000000000" Dst="2" />
+<file name="helpers.easing.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423515718956" remote="131748354000000000" Dst="2" />
+<file name="platform.dom.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423517677852" remote="131748354000000000" Dst="2" />
+<file name="helpers.options.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423516668427" remote="131748354000000000" Dst="2" />
+<file name="plugin.filler.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423518587231" remote="131748354000000000" Dst="2" />
+<file name="plugin.legend.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423519338199" remote="131748354000000000" Dst="2" />
+<file name="plugin.title.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423520187731" remote="131748354000000000" Dst="2" />
+<file name="scale.category.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423521017164" remote="131748354000000000" Dst="2" />
+<file name="scale.linear.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423521936609" remote="131748354000000000" Dst="2" />
+<file name="scale.logarithmic.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423522819143" remote="131748354000000000" Dst="2" />
+<file name="scale.time.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423524796312" remote="131748354000000000" Dst="2" />
+<file name="scale.radialLinear.tests.js" server="ftp.alfredofiorillo.it//www.alfredofiorillo.it/iambrand/" local="131731423523746902" remote="131748354000000000" Dst="2" />
+</dwsync>

@@ -28,7 +28,7 @@
 		$stringPercentageGoal = $manager->getStringITA($dateBegin, $dateFinal,$dateToday);
 		
 		
-		?>
+	?>
 
 	<!-- ----- BEGIN PANEL ----- -->
 	<div id="<?php echo $array_goal[ $i ]->id . 'Goal'; ?>" class="panel-body panelGoal" style="padding-bottom: 0px;">
@@ -106,13 +106,8 @@
 							//alert(risposta);
 							$( "#modalGoal" ).html( risposta );
 							$( "#modalGoal" ).modal( 'show' );
-							// imposto un refresh di pagina dopo 60 secondi
-
-							/*
-							setTimeout( function () {
-								window.location.reload()
-							}, 1000 );
-							*/
+							
+							
 						},
 						error: function () {
 							alert( "Chiamata fallita!!!" );

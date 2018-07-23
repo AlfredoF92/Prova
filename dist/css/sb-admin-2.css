@@ -405,11 +405,13 @@ table.dataTable thead .sorting:after {
 @media (max-width: 767px) {
   ul.timeline:before {
     left: 40px;
+	display: none;  
   }
   ul.timeline > li > .timeline-panel {
-    width: calc(10%);
+    /* width: calc(10%);
     width: -moz-calc(10%);
-    width: -webkit-calc(10%);
+    width: -webkit-calc(10%); */
+	width: 100%;
   }
   ul.timeline > li > .timeline-badge {
     top: 16px;

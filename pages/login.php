@@ -87,12 +87,15 @@
 								//un content type errato
 					   success: function ( risposta ) {
 						   	
-						   	
-						    if(risposta>0){
-								window.location.href = "http://localhost/iambrand/iambrand/pages/index.php"
+						   $( "#risposta" ).html(risposta);
+						   
+						    if(risposta==0){
+								$( "#risposta" ).html("Username o password errati.");
 							}
-							else $( "#risposta" ).html("Username o password errati.");
-							
+							else if(risposta==1){
+								window.location.href = "http://localhost/iambrand/iambrand/pages/redirectLogin.php";
+
+							}
 						    // imposto un refresh di pagina dopo 60 secondi
 							/*setTimeout(function() {
 							  window.location.reload()

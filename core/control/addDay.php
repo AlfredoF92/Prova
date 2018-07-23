@@ -101,6 +101,7 @@
 				$lifeYourself = $goal->lifeYourself;
 				$percentage = $goal->percentageInvestor;
 				$myLife_manager->updateGoalState($idGoal, "success", $date);
+				$urlMedia = "goalSuccess-01.jpg";
 				echo "sono qui s";
 			}else if($_REQUEST[ 'resultGoal' ] == 0){
 				
@@ -110,6 +111,7 @@
 				$lifeYourself = -($goal->lifeYourself);
 				$percentage = -10;
 				$myLife_manager->updateGoalState($idGoal, "failed", $date);
+				$urlMedia = "goalFailed-01.jpg";
 				echo "sono qui F";
 			}
 			
@@ -121,7 +123,7 @@
 			
 		
 			$type = "goal";
-			$urlMedia = "";
+			
 		}
 
 

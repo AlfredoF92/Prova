@@ -9,14 +9,17 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>SB Admin 2 - Bootstrap Admin Theme</title>
+	<title>I AM BRAND</title>
 
 	<?php include_once("headerlink.php"); ?>
 	<?php include_once("include_core.php"); ?>
 
 	<script src="../node_modules/trumbowyg/dist/trumbowyg.min.js"></script>
 	<link rel="stylesheet" href="../node_modules/trumbowyg/dist/ui/trumbowyg.min.css">
-	
+
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
 </head>
 
 <?php
@@ -39,83 +42,9 @@ $manager = new MyLifeManager();
 
 <body>
 
-	<!--										
-		################################################
-					  MODAL INVESTITORS
-		################################################							
-	-->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title" style="align-content: center; margin-left: 40%" id="exampleModalLabel">Investitori</h3>
-
-				</div>
-				<div class="modal-body">
-
-					<div class="form-group">
-						<label for="comment">Un commento per gli investitori</label>
-						<textarea class="form-control" rows="1" id="p_commentUser"></textarea>
-					</div>
+	<?php include_once("modalInvestitors.php") ?>
 
 
-					<div class="row">
-						<div class="col-lg-2">
-							<span>Mood</span>
-						</div>
-
-						<div class="col-lg-5">
-							<div class="slidecontainer-mood">
-								<input type="range" min="-10" max="10" value="0" class="slider" id="p_lifeMood">
-							</div>
-						</div>
-						<div class="col-lg-5">
-							<span id="answer-mood">Mi sento una merda. Ok?</span>
-
-						</div>
-
-					</div>
-					<hr>
-					<img class="center-block" src="../image/1/image/investitori.jpg" width="250" height="250" alt=""/>
-
-					<div class="row">
-						<div class="col-lg-4">
-							<span>Valuta la tua giornata: %</span>
-						</div>
-
-						<div class="col-lg-8">
-							<div class="slidecontainer-mood">
-								<input type="range" min="-10" max="10" value="0" class="slider" id="p_percentage">
-							</div>
-						</div>
-
-					</div>
-
-					<div id="commentsInvestitors" class="row" style="padding-top: 20px">
-
-						<div class="col-lg-4">
-							<span id="comment1">"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. "</span>
-						</div>
-						<div class="col-lg-4">
-							<span id="comment2">"Ut enim ad minim veniam! amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna"</span>
-						</div>
-						<div class="col-lg-4">
-							<span id="comment3">"Ut enim ad minim veniam! Ut enim ad minim veniam!"</span>
-						</div>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-					<button id="save_in_database" type="button" class="btn btn-primary">Salva nel database</button>
-					<div id="risposta"></div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	
-	
 	<!-- MODAL INVESTITOR -->
 	<div id="wrapper">
 
@@ -125,7 +54,7 @@ $manager = new MyLifeManager();
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">
-						<?php echo "Ciao, " . $nomeUtente;	?>
+						<?php echo "Ciao, " . strtoupper($nomeUtente);	?>
 					</h1>
 				</div>
 				<!-- /.col-lg-12 -->
@@ -134,39 +63,23 @@ $manager = new MyLifeManager();
 
 			<?php include_once("fourRectangle.php") ?>
 
-			<!--								
-				################################################						
-						      		GOAL				
-				################################################		
-			-->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-tasks fa-fw"></i> Obiettivi
-							<button class="btn btn-xs btn-default" >Crea obiettivo</button>
-						</div>
+			
 
-						<?php include_once("goalPanels.php"); ?>
-					</div>
-					<!-- .panel-body -->
-				</div>
-				<!-- /.panel -->
-			</div>
-			<!-- /.col-lg-12 -->
+			
 
 
 			<!--										
 				################################################
 						      CHART INVESTITORS										
-				################################################
-									
+				################################################				
 			-->
 			<div class="row">
 				<div class="col-lg-8">
+				
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+							<i class="fa fa-bar-chart-o fa-fw"></i> 
+							<span id="val">Valore societario: PK 1000,00 </span>
 							<div class="pull-right">
 								<div class="btn-group">
 									<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -174,6 +87,7 @@ $manager = new MyLifeManager();
                                         <span class="caret"></span>
                                     </button>
 								
+
 									<ul class="dropdown-menu pull-right" role="menu">
 										<li><a href="#">Action</a>
 										</li>
@@ -196,7 +110,30 @@ $manager = new MyLifeManager();
 						</div>
 						<!-- /.panel-body -->
 					</div>
+					
+					
+					<!--								
+					################################################				
+										GOAL				
+					################################################		
+					-->
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-tasks fa-fw"></i> Obiettivi
+									
+								</div>
 
+								<?php include_once("goalPanels.php"); ?>
+							</div>
+							<!-- .panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+					<!-- /.col-lg-12 -->
+				
+				
 					<!--										
 						################################################
 
@@ -206,7 +143,7 @@ $manager = new MyLifeManager();
 					-->
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+							<i class="fa fa-clock-o fa-fw"></i> NEWS
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
@@ -215,8 +152,13 @@ $manager = new MyLifeManager();
 								<li class="timeline-inverted">
 									<!-- <div class="timeline-badge"><i class="fa fa-check"></i>
                                     </div> -->
+
 									<div class="timeline-panel">
+
 										<div class="timeline-heading">
+											<span class="info"><span class="fa fa-info-circle"></span> Crea due post giornalieri ore 21-08</span>
+
+
 											<h4 class="timeline-title">Titolo</h4>
 
 											<input id="p_title" type="text" style="width: 100%" name="usrname"><br>
@@ -229,20 +171,19 @@ $manager = new MyLifeManager();
 
 											<textarea id="p_description" style="width: 100%; height: 200px" name="comment" form="usrform"></textarea>
 											<script>
-				
-												$('#p_description').trumbowyg({
-													  btns: [
-																['viewHTML'],
-																['undo', 'redo'], // Only supported in Blink browsers
-																//['formatting'],
-																['strong', 'em'],
-																['justifyLeft', 'justifyCenter',  'justifyFull'],
-																['unorderedList', 'orderedList'],
-																['removeformat'],
-																['fullscreen']
-															],
+												$( '#p_description' ).trumbowyg( {
+													btns: [
+														[ 'viewHTML' ],
+														[ 'undo', 'redo' ], // Only supported in Blink browsers
+														//['formatting'],
+														[ 'strong', 'em' ],
+														[ 'justifyLeft', 'justifyCenter', 'justifyFull' ],
+														[ 'unorderedList', 'orderedList' ],
+														[ 'removeformat' ],
+														[ 'fullscreen' ]
+													],
 													lang: 'it'
-												});	
+												} );
 											</script>
 											<div style="padding: 20px" class="text-center">
 
@@ -284,10 +225,11 @@ $manager = new MyLifeManager();
 										</div>
 
 										<!-- Button trigger modal -->
-										<button style="padding-top: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+										<button id="sendInvestitors" style="padding-top: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 										  Invia agli investitori
 										</button>
 									
+
 
 
 
@@ -295,9 +237,7 @@ $manager = new MyLifeManager();
 								</li>
 								<!--										
 									################################################
-
-												  PRINT POSTS
-
+												     PRINT POSTS
 									################################################
 								-->
 								<?php
@@ -327,9 +267,9 @@ $manager = new MyLifeManager();
 
 										</div>
 										<div class="timeline-body">
-											
-												<?php echo $array_post[$i]->description; ?>
-											
+
+											<?php echo $array_post[$i]->description; ?>
+
 										</div>
 									</div>
 								</li>
@@ -349,309 +289,99 @@ $manager = new MyLifeManager();
 				</div>
 				<!-- /.col-lg-8 -->
 				<div class="col-lg-4">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-bell fa-fw"></i> Notifications Panel
-						</div>
-						<!-- /.panel-heading -->
-						<div class="panel-body">
-							<div class="list-group">
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-                                </a>
-							
-
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
-                                </a>
-							
-
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                                </a>
-							
-
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                                </a>
-							
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
-                                </a>
-							
-
-
-
-
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
-                                </a>
-							
-
-
-
-
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                    </span>
-                                </a>
-							
-
-
-
-
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                                </a>
-							
-
-
-
-
-
-
-								<a href="#" class="list-group-item">
-                                    <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-                                </a>
-							
-
-
-
-
-
-
-							</div>
-							<!-- /.list-group -->
-							<a href="#" class="btn btn-default btn-block">View All Alerts</a>
-						</div>
-						<!-- /.panel-body -->
-					</div>
+					
+					<!--
+					<?php //include_once("notificationPanel.php"); ?>
+					-->
+					
+					<?php include_once("motivation.php"); ?>
+					
+					
 					<!-- /.panel -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+							<i class="fa fa-bar-chart-o fa-fw"></i> Grafo
 						</div>
 						<div class="panel-body">
+
+							<?php
+							
+								$myLife_manager = new MyLifeManager();
+
+								$sumRelationship = $myLife_manager->getSumLifeRelationships( $idUser );
+
+								$sumCareer = $myLife_manager->getSumLifeCareer( $idUser );
+
+								$sumYourself = $myLife_manager->getSumLifeYourself( $idUser );
+
+							?>
 							<div id="morris-donut-chart"></div>
 
 							<script>
-								Morris.Donut( {
+								Morris.Bar( {
 									element: 'morris-donut-chart',
 									data: [ {
-										label: "Career",
-										value: 25
-									}, {
-										label: "Yourself",
-										value: 50
-									}, {
-										label: "Relationship",
-										value: 25
-									} ],
-									backgroundColor: '#ccc',
+											y: 'TeStesso',
+											a: <?php echo $sumYourself;?>
+										},
 
-									colors: [
+										{
+											y: 'Relazioni',
+											a: <?php echo $sumRelationship;?>
+										},
 
-										'#231ba8',
-										'#28a91c',
-										'#aa1d1d'
-									]
+										{
+											y: 'Carriera',
+											a: <?php echo $sumCareer;?>
+										}
+									],
+									xkey: 'y',
+									ykeys: [ 'a' ],
+									labels: [ '#' ],
+									/*axes: 'true',
+									hideHover: 'true',
+									stacked: 'true',
+									gridTextSize: '10px',*/
+									barColors: function ( row, series, type ) {
+										console.log( "--> " + row.label, series, type );
+										if ( row.label == "TeStesso" ) return "#00A000";
+										else if ( row.label == "Relazioni" ) return "#FF421E";
+										else if ( row.label == "Carriera" ) return "#6181FF";
 
+									}
 								} );
 							</script>
 
-							<a href="#" class="btn btn-default btn-block">View Details</a>
-						</div>
-						<!-- /.panel-body -->
-					</div>
-					<!-- /.panel -->
-					<div class="chat-panel panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-comments fa-fw"></i> Chat
-							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-							
+							<div id="legendGraphLife">
+								<ul id="yourSelfGraphUL" class="color-yourself">
+									<span class="fa fa-eye color-yourself"></span> <span class="titleGraphUL">TE STESSO</span>
+									<li>Mente</li>
+									<li>Corpo</li>
+									<li>Sport</li>
+									<li>Dieta</li>
+								</ul>
+								<ul id="relationshipGraphUL" class="color-relationships">
+									<span class="fa fa-heart color-relationships"></span>
+									<span class="titleGraphUL">RELATIONI</span>
+									<li>Amicizia</li>
+									<li>Famiglia</li>
+									<li>Amore</li>
+									<li>Svago</li>
+								</ul>
+								<ul id="careerGraphUL" class="color-career">
 
-
-
-								<ul class="dropdown-menu slidedown">
-									<li>
-										<a href="#">
-                                            <i class="fa fa-refresh fa-fw"></i> Refresh
-                                        </a>
-									
-
-
-
-									</li>
-									<li>
-										<a href="#">
-                                            <i class="fa fa-check-circle fa-fw"></i> Available
-                                        </a>
-									
-
-
-
-									</li>
-									<li>
-										<a href="#">
-                                            <i class="fa fa-times fa-fw"></i> Busy
-                                        </a>
-									
-
-
-
-									</li>
-									<li>
-										<a href="#">
-                                            <i class="fa fa-clock-o fa-fw"></i> Away
-                                        </a>
-									
-
-
-
-									</li>
-									<li class="divider"></li>
-									<li>
-										<a href="#">
-                                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                                        </a>
-									
-
-
-
-									</li>
+									<span class="fa fa-cogs color-career"></span>
+									<span class="titleGraphUL">CARRIERA</span>
+									<li>Scuola</li>
+									<li>Formazione</li>
+									<li>Studio</li>
+									<li>Denaro</li>
 								</ul>
 							</div>
-						</div>
-						<!-- /.panel-heading -->
-						<div class="panel-body">
-							<ul class="chat">
-								<li class="left clearfix">
-									<span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-								
 
-									<div class="chat-body clearfix">
-										<div class="header">
-											<strong class="primary-font">Jack Sparrow</strong>
-											<small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                                            </small>
-										
-										</div>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-										</p>
-									</div>
-								</li>
-								<li class="right clearfix">
-									<span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-								
-
-									<div class="chat-body clearfix">
-										<div class="header">
-											<small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-										
-
-											<strong class="pull-right primary-font">Bhaumik Patel</strong>
-										</div>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-										</p>
-									</div>
-								</li>
-								<li class="left clearfix">
-									<span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-								
-
-
-									<div class="chat-body clearfix">
-										<div class="header">
-											<strong class="primary-font">Jack Sparrow</strong>
-											<small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
-										
-
-
-										</div>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-										</p>
-									</div>
-								</li>
-								<li class="right clearfix">
-									<span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-								
-
-									<div class="chat-body clearfix">
-										<div class="header">
-											<small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
-										
-
-											<strong class="pull-right primary-font">Bhaumik Patel</strong>
-										</div>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-										</p>
-									</div>
-								</li>
-							</ul>
+							<!--<a href="#" class="btn btn-default btn-block">View Details</a>-->
 						</div>
 						<!-- /.panel-body -->
-						<div class="panel-footer">
-							<div class="input-group">
-								<input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..."/>
-								<span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
-                                        Send
-                                    </button>
-                                </span>
-							
-							</div>
-						</div>
-						<!-- /.panel-footer -->
 					</div>
 					<!-- /.panel .chat-panel -->
 				</div>
@@ -667,7 +397,7 @@ $manager = new MyLifeManager();
 
 	<?php include_once("footerlinkscript.html")?>
 	<?php include_once("commentIT.html")?>
-	
+
 	<!-- CARICA IMAGIEN-->
 	<script>
 		$( function () {
@@ -681,7 +411,22 @@ $manager = new MyLifeManager();
 		} );
 
 		//$('#gm_idlabel').change(function() { alert($(this).val()); });
-		
+		$( document ).ready( function () {
+			$( "#sendInvestitors" ).click(
+				function () {
+
+					//datiForm.append( 'title', $( "#p_title" ).val() );
+					//datiForm.append( 'description', $( "#p_description" ).val() );
+
+					$( "#imgInvestitor .newsTitle" ).html( "NEWS DA <?php echo strtoupper($nomeUtente); ?>" );
+					$( "#imgInvestitor .title" ).html( $( "#p_title" ).val() );
+					$( "#imgInvestitor .description" ).html( $( "#p_description" ).val() );
+
+				}
+			);
+
+		} );
+
 		$( document ).ready( function () {
 			$( "#save_in_database" ).click(
 				function () {
@@ -712,14 +457,13 @@ $manager = new MyLifeManager();
 						contentType: false, //Serve per NON far inserire automaticamente
 						//un content type errato
 						success: function ( risposta ) {
-							$( "#risposta" ).html( risposta );
+							//$( "#risposta" ).html( risposta );
 							// imposto un refresh di pagina dopo 60 secondi
 
-							
-							/*setTimeout( function () {
+							setTimeout( function () {
 								window.location.reload()
-							}, 1000 );*/
-							
+							}, 1000 );
+
 						},
 						error: function () {
 							alert( "Chiamata fallita!!!" );
@@ -728,13 +472,13 @@ $manager = new MyLifeManager();
 
 				} //function click
 			);
-		
-		});
-		
+
+		} );
+
 		
 	</script>
-	
-	
+
+
 </body>
 
 </html>

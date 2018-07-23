@@ -473,8 +473,8 @@ $idUser = $_SESSION[ 'id' ];
 
 				<div class="row" style="padding: 30px">
 					<div class="row text-right" >
-							<button type="button" class="btn btn-default" data-dismiss="modal">Annulla Modifiche</button>
-						<button id="addPostByGoal" class="btn btn-warning">INVIA</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+						<button id="addPostByGoal" class="btn btn-warning">SALVA NEL DATABASE</button>
 					</div>
 				</div>
 			</div>
@@ -739,9 +739,9 @@ $idUser = $_SESSION[ 'id' ];
 
 					// imposto un refresh di pagina dopo 60 secondi
 
-					/*setTimeout( function () {
+					setTimeout( function () {
 						window.location.reload()
-					}, 1000 );*/
+					}, 2000 );
 
 				},
 				error: function () {

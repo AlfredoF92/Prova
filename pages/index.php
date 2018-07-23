@@ -260,17 +260,34 @@ $manager = new MyLifeManager();
 											<h4 class="timeline-title">
 												<?php echo $array_post[$i]->title;	?>
 											</h4>
-											<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+											<p><small class="text-muted"><i class="fa fa-clock-o"></i> 
+											<?php echo $array_post[$i]->datePost; ?></small>
 											</p>
 
 											<img src="<?php echo '../image/' . $array_post[$i]->idUser . '/diario/' .  $array_post[$i]->urlMedia; ?>" style="width: 100%; height: auto" alt=""/>
-
 										</div>
-										<div class="timeline-body">
+										
+										<div class="timeline-body" style="padding-top: 5px">
 
 											<?php echo $array_post[$i]->description; ?>
 
 										</div>
+										<hr>
+										<?php
+											echo $array_post[$i]->percentage . "<br>";
+											echo $array_post[$i]->lifeCareer . "<br>";
+											echo $array_post[$i]->lifeRelationships . "<br>";
+											echo $array_post[$i]->lifeYourself . "<br>";
+										?>
+										
+										<div class="text-right">
+											<span class="fa fa-heart color-relationships">+3</span>
+											<span class="fa fa-cogs color-career">+3</span>
+											<span class="fa fa-eye color-yourself">+3</span>
+											<span style="font-size: 17px; font-weight: 700">| +3%</span>
+										</div>
+										
+										
 									</div>
 								</li>
 

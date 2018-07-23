@@ -95,42 +95,37 @@
 			$date = date( 'Y-m-d H:i:s', time() );
 			
 			if($_REQUEST[ 'resultGoal' ] == 1){
-				$title = "Obiettivo raggiunto";
+				$title = $goal->title;
 				$lifeCareer = $goal->lifeCareer;	
 				$lifeRelationships = $goal->lifeRelationships;
 				$lifeYourself = $goal->lifeYourself;
 				$percentage = $goal->percentageInvestor;
 				$myLife_manager->updateGoalState($idGoal, "success", $date);
 				$urlMedia = "goalSuccess-01.jpg";
-				echo "sono qui s";
+				
 			}else if($_REQUEST[ 'resultGoal' ] == 0){
 				
-				$title = "Obiettivo fallito";
+				$title = $goal->title;
 				$lifeCareer = -($goal->lifeCareer);	
 				$lifeRelationships = -($goal->lifeRelationships);
 				$lifeYourself = -($goal->lifeYourself);
 				$percentage = -10;
 				$myLife_manager->updateGoalState($idGoal, "failed", $date);
 				$urlMedia = "goalFailed-01.jpg";
-				echo "sono qui F";
 			}
 			
-			$subtitle = $goal->title;
+			$subtitle = "";
 			$description = $goal->description;
 			$commentUser = $_REQUEST['commentUser'];
 			$commentInvestitors = "";	
 			$lifeMood = $_REQUEST['mood'];
 			
-		
 			$type = "goal";
-			
 		}
-
-
 
 		/*
 			########## SAVE IN DATABASE #########
 		*/
 		$myLife_manager->addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type);
-		echo "Salvato!";
+		echo "Salvato nel database!";
 ?>

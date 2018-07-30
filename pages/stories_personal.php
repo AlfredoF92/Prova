@@ -38,6 +38,10 @@ if ( isset( $_SESSION[ 'id' ] ) ) {
 }
 
 $manager = new MyLifeManager();
+	
+	
+	$id_story = $_GET["id"];
+	echo $id_story;
 ?>
 
 <body>
@@ -62,11 +66,6 @@ $manager = new MyLifeManager();
 			<!-- /.row -->
 
 			<?php include_once("fourRectangle.php") ?>
-
-			
-
-			
-
 
 			<!--										
 				################################################

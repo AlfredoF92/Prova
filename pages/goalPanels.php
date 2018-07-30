@@ -107,11 +107,11 @@
 							$( "#modalGoal" ).html( risposta );
 							$( "#modalGoal" ).modal( 'show' );
 							
-							
 						},
 						error: function () {
 							alert( "Chiamata fallita!!!" );
 						}
+				
 					} );
 			
 		} );

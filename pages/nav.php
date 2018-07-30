@@ -8,16 +8,16 @@
                     <span class="icon-bar"></span>
                 </button>
 			
-				<a class="navbar-brand" href="index.html">I AM BRAND</a>
+				<a class="navbar-brand" href="index.html"><img src="../../appunti/logo/Logo6.jpg" width="auto" height="100%" alt=""/></a>
 			</div>
 			<!-- /.navbar-header -->
 
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-envelope fa-fw size-icon"></i> <i class="fa fa-caret-down"></i>
                     </a>
-				
+					<!--
 					<ul class="dropdown-menu dropdown-messages">
 						<li>
 							<a href="#">
@@ -27,7 +27,6 @@
                                         <em>Yesterday</em>
                                     </span>
 							
-
 								</div>
 								<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
 							</a>
@@ -40,10 +39,6 @@
 									<span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
-								
-
-
-
 								</div>
 								<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
 							</a>
@@ -76,16 +71,17 @@
 
 						</li>
 					</ul>
+					-->
 					<!-- /.dropdown-messages -->
 				</li>
 				<!-- /.dropdown -->
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-tasks fa-fw size-icon"></i> <i class="fa fa-caret-down"></i>
                     </a>
 				
 
-
+					
 
 					<ul class="dropdown-menu dropdown-tasks">
 						<li>
@@ -168,7 +164,7 @@
 				<!-- /.dropdown -->
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-bell fa-fw size-icon"></i> <i class="fa fa-caret-down"></i>
                     </a>
 				
 
@@ -236,13 +232,13 @@
 				<!-- /.dropdown -->
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw size-icon"></i> <i class="fa fa-caret-down"></i>
                     </a>
 				
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+						<li><a href="#"><i class="fa fa-user fa-fw"></i> Profilo</a>
 						</li>
-						<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+						<li><a href="#"><i class="fa fa-gear fa-fw"></i> Impostazioni</a>
 						</li>
 						<li class="divider"></li>
 						<li><a id="logout" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -264,19 +260,21 @@
 						<li>
 							<a href="goals.php"><i class="fa fa-shield fa-fw"></i> Crea Obiettivo</a>
 						</li>
-						
+						<li>
+							<a href="stories.php"><i class="fa fa-group fa-fw"></i> Ispirati dalle storie</a>
+						</li>
 						<li>
 							<a href="#"><i class="fa  fa-puzzle-piece fa-fw"></i> Articoli </a>
 							<ul class="nav nav-second-level">
 								<li>
-									<a href="art_yourself.php" class="color-yourself"><span class="fa fa-eye "></span> Yourself</a>
+									<a href="art_yourself.php" class="color-yourself"><span class="fa fa-eye "></span> Te stesso</a>
 									
 								</li>
 								<li>
-									<a href="art_career.html" class="color-career"><span class="fa fa-cogs"></span> Career</a>
+									<a href="art_career.php" class="color-career"><span class="fa fa-cogs"></span> Carriera</a>
 								</li>
 								<li>
-									<a href="art_relationships.html" class="color-relationships"><span class="fa fa-heart"></span> Relationships</a>
+									<a href="art_relationships.php" class="color-relationships"><span class="fa fa-heart"></span> Relazioni</a>
 								</li>
 							</ul>
 							

@@ -12,37 +12,39 @@
 
 	<?php include_once("headerlink.php"); ?>
 	<?php include_once("include_core.php"); ?>
-
+	
 	<style>
-		.article img {
+	
+		.article img{
 			width: 100%;
 			height: 200px;
-		}
+		} 
 		
-		.article .panel-body-articles {
+		.article .panel-body-articles{
 			height: 180px;
 			overflow: hidden;
 		}
 		
-		.article .panel-heading {
-			background-color: #015b01;
+		.article .panel-heading{
+			background-color: #020278;
 			font-size: 12px;
 			height: 24px;
 		}
 		
-		.article a {
-			color: #006400;
+		.article a{
+			color: #020278;
 		}
 		
-		.article .panel-footer {
+		.article .panel-footer{
 			padding: 5px 10px;
-			background-color: #e7e7e7;
+    		background-color: #e7e7e7;
 			height: 30px;
 		}
 		
-		.tab-content .row {
+		.tab-content .row{
 			padding-bottom: 20px;
 		}
+		
 	</style>
 </head>
 
@@ -245,7 +247,6 @@ $manager = new MyLifeManager();
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" class="">Mezz'ora di meditazione al giorno</a>
                                         </h4>
 									
-
 									</div>
 									<div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true" style="">
 										<div class="panel-body">
@@ -455,7 +456,6 @@ $manager = new MyLifeManager();
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">Collapsible Group Item #2</a>
                                         </h4>
 									
-
 									</div>
 									<div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false">
 										<div class="panel-body">
@@ -469,7 +469,6 @@ $manager = new MyLifeManager();
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">Collapsible Group Item #3</a>
                                         </h4>
 									
-
 									</div>
 									<div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
 										<div class="panel-body">
@@ -519,7 +518,7 @@ $manager = new MyLifeManager();
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header color-yourself">Te Stesso</h1>
+					<h1 class="page-header color-career">Carriera </h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -529,10 +528,10 @@ $manager = new MyLifeManager();
 				</li>
 				<li class=""><a href="#mente" data-toggle="tab" aria-expanded="false">Mente</a>
 				</li>
-
+				
 				</li>
 				<li class=""><a href="#fitness" data-toggle="tab" aria-expanded="false">Fitness</a>
-				</li>
+				</li>	
 				<li class=""><a href="#dieta" data-toggle="tab" aria-expanded="false">Dieta</a>
 				</li>
 			</ul>
@@ -540,14 +539,20 @@ $manager = new MyLifeManager();
 				<div class="tab-pane fade active in" id="home">
 
 					<div class="row">
+					
+					<div class="col-lg-4">	<div class="panel panel-default article">	<div class="panel-heading">		<a style="color: white" href="	https://efficacemente.com/2017/12/libri-da-leggere/">	Da efficacemente.com</a>	</div>	<img src="	https://www.efficacemente.com/wp-content/uploads/2017/11/libri-da-leggere-240x240.jpeg	"  alt=""/>		<div class="panel-body panel-body-articles">	<h4>	LIBRI DA LEGGERE: 10 libri consigliati per il nuovo anno	</h4>	<p>	Sei a corto di libri da leggere? Ecco la classifica dei 10 migliori libri che ho letto negli ultimi 12 mesi.	</p>	</div>	<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-right">	<p class="fa fa-eye color-yourself"> 2</p>	<p class="fa fa-cogs color-career">1</p>	<p class="fa fa-heart color-relationships">3</p>	</div>	</div>	</div>
+<div class="col-lg-4">	<div class="panel panel-default article">	<div class="panel-heading">		<a style="color: white" href="	https://www.efficacemente.com/2017/01/non-riesco-a-studiare/">	Da efficacemente.com</a>	</div>	<img src="	https://www.efficacemente.com/wp-content/uploads/2017/01/non-riesco-a-studiare-240x240.jpg	"  alt=""/>		<div class="panel-body panel-body-articles">	<h4>	Non riesco a studiare: consigli pratici per farsi venire voglia di studiare	</h4>	<p>	Se nell’ultimo periodo c’è una vocina nella tua testa che continua a ripeterti “non riesco a studiare!”, prenditi 5 minuti e leggi questo articolo: potrebbe salvare la tua carriera universitaria ;-)	</p>	</div>	<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-right">	<p class="fa fa-eye color-yourself"> 1</p>	<p class="fa fa-cogs color-career">2</p>		</div>	</div>	</div>
+
+					
+
 						<div class="col-lg-4">
+						
 							<div class="panel panel-default article">
 								<div class="panel-heading">
 									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
 								</div>
 
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/corso-di-inglese-gratis.jpg" alt=""/>
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/corso-di-inglese-gratis.jpg"  alt=""/>
 
 								<div class="panel-body panel-body-articles">
 									<h4>5 tecniche per imparare l’inglese EfficaceMente</h4>
@@ -560,588 +565,14 @@ $manager = new MyLifeManager();
 								</div>
 							</div>
 						</div>
-
+						
 						<div class="col-lg-4">
 							<div class="panel panel-default article">
 								<div class="panel-heading">
 									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
 								</div>
 
-								<img src="../image/articles/02.PNG" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come ottenere di più dalla vita</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
-									<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
-									<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
-									<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="tab-pane fade active in" id="mente">
-
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/corso-di-inglese-gratis.jpg" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>5 tecniche per imparare l’inglese EfficaceMente</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-right">
-									<p class="fa fa-eye color-yourself"> +5 ,</p>
-									<p class="fa fa-cogs color-career"> +1 ,</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="../image/articles/02.PNG" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come ottenere di più dalla vita</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
-									<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
-									<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
-									<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-				<div class="tab-pane fade active in" id="fitness">
-
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/corso-di-inglese-gratis.jpg" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>5 tecniche per imparare l’inglese EfficaceMente</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-right">
-									<p class="fa fa-eye color-yourself"> +5 ,</p>
-									<p class="fa fa-cogs color-career"> +1 ,</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="../image/articles/02.PNG" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come ottenere di più dalla vita</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
-									<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
-									<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
-									<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-								</div>
-								<div class="panel-footer panel-footer-articles text-right">
-									<p class="fa fa-eye color-yourself"> +5 |</p>
-									<p class="fa fa-cogs color-career"> +1 |</p>
-									<p class="fa fa-heart color-relationships"> +2 </p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-				<div class="tab-pane fade active in" id="dieta">
-
-					<div class="row">
-						-
-
-						<div class="col-lg-4">
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-								
-								</div>
-
-								<img src="../image/articles/02.PNG" alt=""/>
+								<img src="../image/articles/02.PNG"  alt=""/>
 
 								<div class="panel-body panel-body-articles">
 									<h4>Come ottenere di più dalla vita</h4>
@@ -1155,183 +586,739 @@ $manager = new MyLifeManager();
 							</div>
 						</div>
 						
-								
-
-									<div class="col-lg-4">
-										<div class="panel panel-default article">
-											<div class="panel-heading">
-												<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-											
-											</div>
-
-											<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" alt=""/>
-
-											<div class="panel-body panel-body-articles">
-												<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-											</div>
-											<div class="panel-footer panel-footer-articles text-right">
-												<p class="fa fa-eye color-yourself"> +5 |</p>
-												<p class="fa fa-cogs color-career"> +1 |</p>
-												<p class="fa fa-heart color-relationships"> +2 </p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<div class="panel panel-default article">
-											<div class="panel-heading">
-												<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
-											
-											</div>
-
-											<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
-
-											<div class="panel-body panel-body-articles">
-												<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-											</div>
-											<div class="panel-footer panel-footer-articles text-right">
-												<p class="fa fa-eye color-yourself"> +5 |</p>
-												<p class="fa fa-cogs color-career"> +1 |</p>
-												<p class="fa fa-heart color-relationships"> +2 </p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-4">
-										<div class="panel panel-default article">
-											<div class="panel-heading">
-												<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
-											
-											</div>
-
-											<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
-
-											<div class="panel-body panel-body-articles">
-												<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
-												<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
-											</div>
-											<div class="panel-footer panel-footer-articles text-right">
-												<p class="fa fa-eye color-yourself"> +5 |</p>
-												<p class="fa fa-cogs color-career"> +1 |</p>
-												<p class="fa fa-heart color-relationships"> +2 </p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-4">
-										<div class="panel panel-default article">
-											<div class="panel-heading">
-												<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
-											
-											</div>
-
-											<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
-
-											<div class="panel-body panel-body-articles">
-												<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
-												<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
-											</div>
-											<div class="panel-footer panel-footer-articles text-right">
-												<p class="fa fa-eye color-yourself"> +5 |</p>
-												<p class="fa fa-cogs color-career"> +1 |</p>
-												<p class="fa fa-heart color-relationships"> +2 </p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<div class="panel panel-default article">
-											<div class="panel-heading">
-												<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
-											
-											</div>
-
-											<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
-
-											<div class="panel-body panel-body-articles">
-												<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
-												<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
-											</div>
-											<div class="panel-footer panel-footer-articles text-right">
-												<p class="fa fa-eye color-yourself"> +5 |</p>
-												<p class="fa fa-cogs color-career"> +1 |</p>
-												<p class="fa fa-heart color-relationships"> +2 </p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-4">
-										<div class="panel panel-default article">
-											<div class="panel-heading">
-												<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-											
-											</div>
-
-											<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-											<div class="panel-body panel-body-articles">
-												<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-												<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-											</div>
-											<div class="panel-footer panel-footer-articles text-right">
-												<p class="fa fa-eye color-yourself"> +5 |</p>
-												<p class="fa fa-cogs color-career"> +1 |</p>
-												<p class="fa fa-heart color-relationships"> +2 </p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-4">
-										<div class="panel panel-default article">
-											<div class="panel-heading">
-												<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
-											
-											</div>
-
-											<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
-
-											<div class="panel-body panel-body-articles">
-												<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
-												<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
-											</div>
-											<div class="panel-footer panel-footer-articles text-right">
-												<p class="fa fa-eye color-yourself"> +5 |</p>
-												<p class="fa fa-cogs color-career"> +1 |</p>
-												<p class="fa fa-heart color-relationships"> +2 </p>
-											</div>
-										</div>
-									</div>
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
 								</div>
 
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
 							</div>
 						</div>
-
-
-
 					</div>
-					<!-- /#page-wrapper -->
+					<div class="row">	
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
+									<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
+									<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
+									<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>
 
 				</div>
-				<!-- /#wrapper -->
+					<div class="tab-pane fade active in" id="mente">
+
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/corso-di-inglese-gratis.jpg"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>5 tecniche per imparare l’inglese EfficaceMente</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-right">
+									<p class="fa fa-eye color-yourself"> +5 ,</p>
+									<p class="fa fa-cogs color-career"> +1 ,</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="../image/articles/02.PNG"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come ottenere di più dalla vita</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
+									<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
+									<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
+									<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+				
+					<div class="tab-pane fade active in" id="fitness">
+
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/corso-di-inglese-gratis.jpg"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>5 tecniche per imparare l’inglese EfficaceMente</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-right">
+									<p class="fa fa-eye color-yourself"> +5 ,</p>
+									<p class="fa fa-cogs color-career"> +1 ,</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="../image/articles/02.PNG"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come ottenere di più dalla vita</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
+									<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
+									<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
+									<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+				
+				<div class="tab-pane fade active in" id="dieta">
+
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/corso-di-inglese-gratis.jpg"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>5 tecniche per imparare l’inglese EfficaceMente</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-right">
+									<p class="fa fa-eye color-yourself"> +5 ,</p>
+									<p class="fa fa-cogs color-career"> +1 ,</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="../image/articles/02.PNG"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come ottenere di più dalla vita</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg"  alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/memorizzare-e1292318159710-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Come memorizzare velocemente: studiare un libro nel modo efficace</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2010/02/5-azioni-pratiche-per-sviluppare-lautostima-di-un-supereroe/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2010/02/sviluppare-autostima-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>5 azioni pratiche per sviluppare l’autostima di un supereroe</h4>
+									<p>Aumentare l’autostima e la fiducia in sé stessi non ci rende automaticamente dei supereroi, ma rappresenta il primo passo per affrontare al meglio le sfide di tutti i giorni e i nostri obiettivi più ambiziosi.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://efficacemente.com/2015/02/perseveranza/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2015/02/perseveranza-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Perseveranza: le 4 lezioni di Emil Zatopek</h4>
+									<p>Se sei a corto di perseveranza e ti arrendi quasi sempre alle prime difficoltà, sono certo che Emil Zatopek possa insegnarti un paio di cosine (anzi 4).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/11/mappe-concettuali/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/11/mappe-concettuali-240x240.jpg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>Mappe concettuali: come fare una mappa concettuale efficace</h4>
+									<p>Creare mappe concettuali è una delle abilità chiave per gli studenti di ogni età (scuola primaria, scuola media, superiori e università). Scopriamo insieme cosa sono le mappe concettuali, come si fanno e i migliori programmi e strumenti per crearle (ce n’è uno che li batte tutti).</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="panel panel-default article">
+								<div class="panel-heading">
+									<a style="color: white" href="https://www.efficacemente.com/2017/03/determinazione/">Da www.efficacemente.com</a>
+								</div>
+
+								<img src="https://www.efficacemente.com/wp-content/uploads/2017/03/determinazione-240x240.jpeg" width="100%" height="250px" alt=""/>
+
+								<div class="panel-body panel-body-articles">
+									<h4>DETERMINAZIONE: 3 strategie per essere più determinati nella vita</h4>
+									<p>La determinazione (o “tigna”, come amo chiamarla), tra le qualità umane è quella che più di ogni altra può incidere sui tuoi successi: ecco perché e come svilupparla se non ne hai abbastanza.</p>
+								</div>
+								<div class="panel-footer panel-footer-articles text-right">
+									<p class="fa fa-eye color-yourself"> +5 |</p>
+									<p class="fa fa-cogs color-career"> +1 |</p>
+									<p class="fa fa-heart color-relationships"> +2 </p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
 
 
-				<script>
-					$( ".panel" ).click( function () {
 
-						$( this ).css( 'cursor', 'pointer' );
-						$( "#tallModal" ).modal( 'show' );
+		</div>
+		<!-- /#page-wrapper -->
 
-					} )
+	</div>
+	<!-- /#wrapper -->
 
-					$( '.panel' ).hover( function () {
-						$( this ).css( 'cursor', 'pointer' );
-					} );
-				</script>
-				<?php include_once("footerlinkscript.html")?>
+
+	<script>
+		$( ".panel" ).click( function () {
+
+			$( this ).css( 'cursor', 'pointer' );
+			$( "#tallModal" ).modal( 'show' );
+
+		} )
+
+		$( '.panel' ).hover( function () {
+			$( this ).css( 'cursor', 'pointer' );
+		} );
+	</script>
+	<?php include_once("footerlinkscript.html")?>
 
 
 </body>

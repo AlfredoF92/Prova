@@ -5,7 +5,7 @@ class Post {
     public $id;
     public $idUser;
     public $datePost;
-	public $dateNewPost;
+	public $dateNewPost; //Data ultima modifica
     public $title;
     public $subtitle;
 	public $description;

@@ -168,15 +168,7 @@
 			return;
 		}
 		
-		public function updatePost(){
-			
-			//UpdateGoal per settare NameState ad achieeved	
-			//addPost per creare un post con obiettivo raggiunto 
-			//mi prendo l'id e me lo salvo da qualche parte
-			
-			
-			return;
-		}
+	
 		
 		/*
 			MANAGER POST
@@ -245,6 +237,49 @@
 			return $posts;
 		}
 		
+		public function getPost($idUser, $idPost){
+			
+			$query = "SELECT * FROM `post` WHERE idUser = ? AND id = ?";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("ii", $idUser, $idPost);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			
+			if (!$result) {
+				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
+				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
+				
+				exit;
+			}
+			if($result->num_rows === 0) exit('No rows');
+
+			$obj = $result->fetch_assoc();
+                
+			$post = new Post( 
+								 	 $obj["id"],
+									 $obj["idUser"],
+									 $obj["datePost"],
+									 $obj["dateNewPost"],
+									 $obj["title"],
+									 $obj["subtitle"],
+									 html_entity_decode($obj["description"]),
+									 $obj["urlMedia"],
+									 $obj["commentUser"],
+									 $obj["commentInvestitors"],
+									 $obj["percentage"],
+									 $obj["lifeMood"],
+									 $obj["lifeCareer"],
+									 $obj["lifeRelationships"],
+									 $obj["lifeYourself"],
+									 $obj["type"]
+								 );
+            
+			
+			$stmt->close();
+			
+			return $post;
+		}
 		
 		/*
 			MANAGER LOGIN 
@@ -420,7 +455,7 @@
 				
 				exit;
 			}
-			
+			$labels = "";
 			while ($obj = $result->fetch_assoc()) {
                 
 				$labels[] = new Label( 
@@ -466,6 +501,29 @@
 			return; 
 		}
 		
+		
+		public function updatePost($datePost, $urlMedia, $title, $subTitle, $description, $commentUser, $percentage, $lifeCareer, $lifeRelationships, $lifeYourself, $idPost, $idUser){
+			
+			
+			$query = "UPDATE `post` SET `datePost` = ?, `urlMedia` = ?, `title` = ?, `subtitle` = ?, `description` = ?, `commentUser` = ?, `percentage` = ?, `lifeCareer` = ?, `lifeRelationships` = ?, `lifeYourself` = ? WHERE `post`.`id` = ? AND idUser = ?";
+			
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("ssssssiiiiii", $datePost, $urlMedia, $title, $subTitle, $description, $commentUser, $percentage, $lifeCareer, $lifeRelationships, $lifeYourself, $idPost, $idUser);
+			
+			$stmt->execute();
+			
+			/*
+			$result = $stmt->get_result();
+			if (!$result) {
+				echo "Description Error updatePost(): " . Manager::getDB()->error . " <br>";
+				echo "Description Error updatePost(): " . Manager::getDB()->errno . " <br>";
+				
+				exit;
+			}*/
+			
+			return; 
+		}
 		
 		
 		/*

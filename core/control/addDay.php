@@ -74,7 +74,7 @@
 			$title = $_REQUEST[ 'title' ];
 			//$subtitle = $_REQUEST[ 'subtitle' ];
 			$description = $_REQUEST[ 'description' ];
-			$subtitle = ""; 
+			$subtitle = $_REQUEST[ 'subTitle' ];
 			$commentUser = $_REQUEST[ 'commentUser' ];	
 			$commentInvestitors = "";	
 			$percentage = $_REQUEST[ 'percentage' ];	

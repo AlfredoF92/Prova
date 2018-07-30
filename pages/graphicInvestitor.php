@@ -21,7 +21,7 @@
 					$only_data = substr($data, 0, 10);
 					$only_time = substr($data, 10, 18);
 					
-					$value = (($percentage/100) * $value)+$value; 
+					$value = intval((($percentage/100) * $value)+$value); 
 					$echodate = $only_data + $only_time; 
 					
 					if($i==$max-1){
@@ -37,25 +37,20 @@
 					  { year: '2008-10-05', value: 142 },";
 				*/
 			?>
-
 			
-		],
-
-		// The name of the data record attribute that contains x-values.
-		xkey: 'year',
-		// A list of names of data record attributes that contain y-values.
-		ykeys: [ 'value' ],
-		// Labels for the ykeys -- will be displayed when you hover over the
-		// chart.
-		labels: [ 'Percentuale' ],
-		parseTime: false,
-		hoverCallback: function ( index, options, content, row ) {
+			/*
+			######################
+			
+			FUNZIONE HOVERCALLBACK DA RIVEDERE, ERRORE ASSURDO
+			
+			######################
+			hoverCallback: function ( index, options, content, row ) {
 
 			var s = index;
 			var cars = [
-
+			*/
 	<?php 
-		
+		/*
 		//$posts = $myLife_manager->myLifeManager();
 
 		for($i=0; $i<$max; $i++){
@@ -73,7 +68,7 @@
 
 			}else $url = '<img src="../image/' . $idUser . "/diario/" .  $array_posts_ASC[$i]->urlMedia . "\"" . ' style="width: 50px; height: 50px" alt=""/>' ;
 
-			$div = "'<a href=\" \">" . "<span>$title </span>" . "<br>" . $url . "<br>" . "<span> $percentage </span></a>'"  . ",\n";
+			$div = "'<a href=\" \">" . "<span>$title </span>" . "<br>" . $url . "<br>" . "<span> $percentage </span></a>'"  . ", \n\n";
 
 			if($i==$max-1){
 
@@ -83,17 +78,31 @@
 
 				echo $div;
 			}
-		} 
+		} */
 	  ?>
-				/*'<img src="../image/1/image/2018-06-10-10-06.jpg" width="50" height="50" alt=""/>',
-				'<img src="../image/1/image/2018-06-10-10-06.jpg" width="50" height="50" alt=""/>',
-				'<img src="../image/1/image/2018-06-10-10-06.jpg" width="50" height="50" alt=""/>'
-				*/
+			/*	
 			];
 
 
 
 			return cars[ index ];
-		}
+			######################
+			
+			FUNZIONE HOVERCALLBACK DA RIVEDERE, ERRORE ASSURDO
+			
+			######################
+		}*/
+			
+		],
+
+		// The name of the data record attribute that contains x-values.
+		xkey: 'year',
+		// A list of names of data record attributes that contain y-values.
+		ykeys: [ 'value' ],
+		// Labels for the ykeys -- will be displayed when you hover over the
+		// chart.
+		labels: [ 'Percentuale' ],
+		parseTime: false,
+		
 	} );
 </script>

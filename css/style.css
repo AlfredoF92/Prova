@@ -340,3 +340,54 @@ SLIDEEEEEEEEEEEEEEEER
     border: 5px;
 	padding: 5px 10px;
 }
+
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+}
+
+/*
+NAVBAR MODIFICATA
+*/
+nav.navbar.navbar-default.navbar-static-top {
+    background-color: black;
+	height: 80px;
+	
+}
+
+@media (min-width: 768px){
+	
+	.sidebar {
+		
+		margin-top: 80px;
+	}
+}
+
+.navbar-default .navbar-brand {
+    color: #777;
+    height: 73px;
+}
+
+a.dropdown-toggle {
+    color: white;
+}
+
+.navbar-top-links li a {
+    padding: 18px;
+    min-height: 50px;
+    height: 40px;
+    margin: -1px;
+}
+
+.navbar-top-links {
+    margin-right: 0;
+    padding-top: 10px;
+}
+
+.size-icon{
+	
+	font-size: 24px;
+}

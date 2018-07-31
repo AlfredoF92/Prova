@@ -106,9 +106,10 @@
 								//include( "../core/manager/Manager.php" );
 								//include( "../core/manager/MyLifeManager.php" );
 
-								$array_post = $manager->getPosts( $idUser );
+								$array_post = $manager->getPosts( $idUser, $idStory );
 								$max = sizeof( $array_post );
-
+								
+								if($hasPost==1) 								
 								for ( $i = 0; $i < $max; $i++ ) {
 
 									?>

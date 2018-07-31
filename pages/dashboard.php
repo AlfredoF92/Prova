@@ -36,38 +36,193 @@ if ( isset( $_SESSION[ 'id' ] ) ) {
 	header( "location: http://localhost/iambrand/iambrand/pages/login.php" );
 	// redirect verso pagina interna
 }
-
-$manager = new MyLifeManager();
-$idStory = $_GET["id"];
-
+	
+	$manager = new MyLifeManager();
+	
+	$story = "";
+	if(isset($_GET["idStory"])){
+		$idStory = $_GET["idStory"]; 
+		$story = $manager->getStoryById($idStory);
+	
+	}else $idStory = 0; 
+	
+	$hasPost = $manager->hasPosts( $idUser, $idStory );	
+	
+	
+	
 ?>
 
 <body>
+<!--										
+################################################
+SOMMARIO: 
+0. Modal investitor: exampleModal
+1. ROW - TITOLO
+2. I 4 RETTANGOLI
+3. CHART INVESTITORS
+4. PANEL GOAL
+5. PANEL NEWS	
+6. GALLERY AND PHRASES
+7. GRAFO LIFE
+8. SCRIPT					 
+################################################							
+-->
+	
+	
+	<!--										
+		################################################
+					  0. MODAL INVESTITORS
+		################################################							
+	-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" id="exampleModalLabel">La notizia è su tutti i giornali! Gli investitori valuteranno la tua notizia a breve.</h3>
 
-	<?php include_once("modalInvestitors.php") ?>
+				</div>
+				<div class="modal-body">
 
+									
+					<div id="imgInvestitor">
+						<span class="newsTitle">Ciao</span>
+						<span class="title">Ciao</span>
+						<span class="description">Ciao</span>
+						<div id="commentsInvestitors" class="row" >
+							<div>
+								<span id="comment1">"Sei un buon annulla!"</span>
+							</div>
+							<div>
+								<span id="comment2">"Vaffanculo! Non investirò mai più su di te. "</span>
+							</div>
+							<div >
+								<span id="comment3">"Ottimo amico. Vai avanti così."</span>
+							</div>
+						</div>
+						
+						<img class="center-block" src="../image/demo/Fumetto_Investitore_05.jpg" width="100%" height="auto" alt=""/>
+						
+					</div>
+
+					<hr>	
+					<div class="row">
+					
+						<div class="col-lg-4">	
+						<div class="form-group">
+							<textarea class="form-control" rows="1" style="height:80px" id="p_commentUser" placeholder="Lascia un commento per gli investitori"></textarea>
+						</div>
+
+						
+							
+						<div class="row" style="display: none">
+							<div class="col-lg-2">
+								<span>Umore</span>
+							</div>
+
+							<div class="col-lg-5">
+								<div class="slidecontainer-mood">
+									<input type="range" min="-10" max="10" value="0" class="slider" id="p_lifeMood">
+								</div>
+							</div>
+							<div class="col-lg-5">
+								<span id="answer-mood">0</span>
+
+							</div>
+
+						</div>
+						</div>
+					
+					
+					
+						<div class="col-lg-8">
+						<div class="row">
+							<div class="col-lg-12">
+								<span>Aumenta/diminuisci il tuo valore societario: %</span>
+							</div>
+
+							<div class="col-lg-12">
+								<div class="slidecontainer-mood">
+									<input type="range" min="-12" max="12" value="0" class="slider" id="p_percentage">
+								</div>
+							</div>
+							<div class="col-lg-12 text-right">
+								<span id="dayPercentageSpan" style="font-size: 50px">0%</span>
+							</div>
+						</div>
+
+						</div>	
+				
+					
+					</div>	
+				</div>
+				
+				
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+					<button id="save_in_database" type="button" class="btn btn-primary">Salva nel database</button>
+					<div id="risposta"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<script>
+
+		$("#p_percentage").change(function(){
+		
+			$("#dayPercentageSpan").text($("#p_percentage").val() + "%");
+		})
+	
+	</script>
+	
 
 	<!-- MODAL INVESTITOR -->
 	<div id="wrapper">
 
 		<?php include_once("nav.php") ?>
-
+		
 		<div id="page-wrapper">
+			<!--										
+				################################################
+						      1. ROW - TITOLO										
+				################################################				
+			-->
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">
-						<?php echo "Ciao, " . strtoupper($nomeUtente);	?>
+					
+						<?php 
+							
+							if($idStory>0)
+								echo $story->title;
+							else echo "Ciao, " . strtoupper($nomeUtente);	
+						
+						?>
 					</h1>
+						<?php 
+							
+							//if($idStory>0)
+							//	echo $story->description;
+							
+						?>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
 
+			<!--										
+				################################################
+						      2. I 4 RETTANGOLI										
+				################################################				
+			-->
 			<?php include_once("fourRectangle.php") ?>
+
 
 			<!--										
 				################################################
-						      CHART INVESTITORS										
+						      3. CHART INVESTITORS										
 				################################################				
 			-->
 			<div class="row">
@@ -76,15 +231,14 @@ $idStory = $_GET["id"];
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<i class="fa fa-bar-chart-o fa-fw"></i> 
-							<span id="val">Valore societario: PK 1000,00 </span>
+							<span id="valSc">Valore societario: PK 1000,00 </span>
 							<div class="pull-right">
 								<div class="btn-group">
 									<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         Actions
                                         <span class="caret"></span>
                                     </button>
-								
-
+							
 									<ul class="dropdown-menu pull-right" role="menu">
 										<li><a href="#">Action</a>
 										</li>
@@ -102,8 +256,14 @@ $idStory = $_GET["id"];
 						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<div id="myfirstchart" style="height: 250px;"></div>
-
-							<?php include_once("graphicInvestitor.php"); ?>
+							
+							<?php 
+	
+								
+								if($hasPost==1){
+									include_once("graphicInvestitor.php"); 
+								}
+							?>
 						</div>
 						<!-- /.panel-body -->
 					</div>
@@ -111,7 +271,7 @@ $idStory = $_GET["id"];
 					
 					<!--								
 					################################################				
-										GOAL				
+										4. PANEL GOAL				
 					################################################		
 					-->
 					<div class="row">
@@ -133,9 +293,7 @@ $idStory = $_GET["id"];
 				
 					<!--										
 						################################################
-
-									  PANEL NEW POSTS
-
+									 5. PANEL NEWS
 						################################################
 					-->
 					<?php include_once("news.php"); ?>
@@ -145,13 +303,20 @@ $idStory = $_GET["id"];
 				<!-- /.col-lg-8 -->
 				<div class="col-lg-4">
 					
-					<!--
-					<?php //include_once("notificationPanel.php"); ?>
-					-->
 					
+					<!--										
+						################################################
+									 6. GALLERY AND PHRASES
+						################################################
+					-->
 					<?php include_once("motivation.php"); ?>
 					
 					
+					<!--										
+						################################################
+									 7. GRAFO LIFE
+						################################################
+					-->
 					<!-- /.panel -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -163,11 +328,11 @@ $idStory = $_GET["id"];
 							
 								$myLife_manager = new MyLifeManager();
 
-								$sumRelationship = $myLife_manager->getSumLifeRelationships( $idUser );
+								$sumRelationship = $myLife_manager->getSumLifeRelationships( $idUser, $idStory );
 
-								$sumCareer = $myLife_manager->getSumLifeCareer( $idUser );
+								$sumCareer = $myLife_manager->getSumLifeCareer( $idUser, $idStory );
 
-								$sumYourself = $myLife_manager->getSumLifeYourself( $idUser );
+								$sumYourself = $myLife_manager->getSumLifeYourself( $idUser, $idStory );
 
 							?>
 							<div id="morris-donut-chart"></div>
@@ -253,7 +418,7 @@ $idStory = $_GET["id"];
 	<?php include_once("footerlinkscript.html")?>
 	<?php include_once("commentIT.html")?>
 
-	<!-- CARICA IMAGIEN-->
+	<!-- 8. SCRIPT-->
 	<script>
 		$( function () {
 			$( "#select" ).click(
@@ -300,6 +465,9 @@ $idStory = $_GET["id"];
 					datiForm.append( 'lifeRelationships', $( "#p_lifeRelationships" ).val() );
 					datiForm.append( 'lifeYourself', $( "#p_lifeYourself" ).val() );
 					datiForm.append( 'type', "day" );
+					
+					datiForm.append( 'idStory', <?php echo $idStory ?> );
+					
 					//datiForm.append( 'type', $( "#p_type" ).val() );
 
 					$.ajax( {
@@ -312,13 +480,13 @@ $idStory = $_GET["id"];
 						contentType: false, //Serve per NON far inserire automaticamente
 						//un content type errato
 						success: function ( risposta ) {
-							//$( "#risposta" ).html( risposta );
+							$( "#risposta" ).html( risposta );
 							// imposto un refresh di pagina dopo 60 secondi
-
+							/*	
 							setTimeout( function () {
 								window.location.reload()
 							}, 1000 );
-
+							*/	
 						},
 						error: function () {
 							alert( "Chiamata fallita!!!" );

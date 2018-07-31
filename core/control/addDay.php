@@ -17,9 +17,8 @@
 			
 		}
 		$idUser =  $_SESSION['id']; 
-		
-
-		
+		$idStory =  $_REQUEST['idStory']; 
+				
 		if ($_REQUEST['type']=="day"){
 			/*
 				########## IMAGE MANAGEMENT #########
@@ -126,6 +125,6 @@
 		/*
 			########## SAVE IN DATABASE #########
 		*/
-		$myLife_manager->addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type);
+		$myLife_manager->addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type, $idStory);
 		echo "Salvato nel database!";
 ?>

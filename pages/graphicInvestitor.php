@@ -8,7 +8,7 @@
 
 			<?php 
 				
-				$array_posts_ASC = $manager->getPercentage($idUser); 
+				$array_posts_ASC = $manager->getPercentage($idUser, $idStory); 
 				
 				$value = 1000; 
 				
@@ -105,4 +105,7 @@
 		parseTime: false,
 		
 	} );
+	
+	$("#valSc").html("Valore societario: PK " + <?php echo $value; ?>);
+	
 </script>

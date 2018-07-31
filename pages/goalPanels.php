@@ -11,7 +11,8 @@
 	<?php
 	//include( "../core/manager/Manager.php" );
 	//include( "../core/manager/MyLifeManager.php" );
-	$array_goal = $manager->getGoals( $idUser );
+
+	$array_goal = $manager->getGoals( $idUser, $idStory );
 	$max = sizeof( $array_goal );
 	
 

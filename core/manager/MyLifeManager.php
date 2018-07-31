@@ -27,12 +27,12 @@
 			
 		}
 		
-		public function getGoals($idUser){
+		public function getGoals($idUser, $idStory){
 			
-				$query = "SELECT goal.id, idUser, title, description, dateBegin, dateFinal, idLabel, idNameState, lifeYourself, lifeCareer, lifeRelationships, percentageInvestor, name, color FROM `goal`,`labelgoal` WHERE `idUser`= ? AND `idNameState`= 'open' AND `idLabel` = labelgoal.id" ;
+				$query = "SELECT goal.id, idUser, title, description, dateBegin, dateFinal, idLabel, idNameState, lifeYourself, lifeCareer, lifeRelationships, percentageInvestor, name, color FROM `goal`,`labelgoal` WHERE `idUser`= ? AND `idNameState`= 'open' AND `idLabel` = labelgoal.id AND `idStory` = ?" ;
 				 
 				$stmt = Manager::getDB()->prepare($query);
-				$stmt->bind_param("i", $idUser);
+				$stmt->bind_param("ii", $idUser, $idStory);
 				$stmt->execute();
 				$result = $stmt->get_result();
 				
@@ -173,13 +173,13 @@
 		/*
 			MANAGER POST
 		*/
-		public function addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type){
+		public function addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type, $idStory){
 					
-			$query = "INSERT INTO `post` (`id`, `idUser`, `datePost`, `title`, `subtitle`, `description`, `urlMedia`, `commentUser`, `commentInvestitors`, `percentage`, `lifeMood`, `lifeCareer`, `lifeRelationships`, `lifeYourself`, `type`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+			$query = "INSERT INTO `post` (`id`, `idUser`, `datePost`, `title`, `subtitle`, `description`, `urlMedia`, `commentUser`, `commentInvestitors`, `percentage`, `lifeMood`, `lifeCareer`, `lifeRelationships`, `lifeYourself`, `type`, `idStory`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 				
 			$stmt = Manager::getDB()->prepare($query);
 			
-			$stmt->bind_param("isssssssddddds", $idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type);
+			$stmt->bind_param("isssssssdddddsi", $idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type, $idStory);
 			
 			if (!$stmt->execute()) {
 				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
@@ -192,12 +192,12 @@
 			return; 
 		}
 		
-		public function getPosts($idUser){
+		public function hasPosts($idUser, $idStory){
 			
-			$query = "SELECT * FROM `post` WHERE `idUser` = ? ORDER BY datePost DESC";
+			$query = "SELECT * FROM `post` WHERE `idUser` = ? AND `idStory` = ? ORDER BY datePost DESC";
 			
 			$stmt = Manager::getDB()->prepare($query);
-			$stmt->bind_param("i", $idUser);
+			$stmt->bind_param("ii", $idUser, $idStory);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			
@@ -207,7 +207,33 @@
 				
 				exit;
 			}
-			if($result->num_rows === 0) exit('No rows');
+			
+			$stmt->close();
+
+			
+			if($result->num_rows === 0) return -1; 
+			else return 1; 
+			
+			
+		}
+		
+		
+		public function getPosts($idUser, $idStory){
+			
+			$query = "SELECT * FROM `post` WHERE `idUser` = ? AND `idStory` = ? ORDER BY datePost DESC";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("ii", $idUser, $idStory);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			
+			if (!$result) {
+				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
+				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
+				
+				exit;
+			}
+			if($result->num_rows === 0) return -1; 
 
 			while ($obj = $result->fetch_assoc()) {
                 
@@ -253,33 +279,151 @@
 				exit;
 			}
 			if($result->num_rows === 0) exit('No rows');
+			   
+			while ($obj = $result->fetch_assoc()) {
 
-			$obj = $result->fetch_assoc();
-                
-			$post = new Post( 
-								 	 $obj["id"],
-									 $obj["idUser"],
-									 $obj["datePost"],
-									 $obj["dateNewPost"],
-									 $obj["title"],
-									 $obj["subtitle"],
-									 html_entity_decode($obj["description"]),
-									 $obj["urlMedia"],
-									 $obj["commentUser"],
-									 $obj["commentInvestitors"],
-									 $obj["percentage"],
-									 $obj["lifeMood"],
-									 $obj["lifeCareer"],
-									 $obj["lifeRelationships"],
-									 $obj["lifeYourself"],
-									 $obj["type"]
-								 );
-            
+					$post = new Post( 
+											 $obj["id"],
+											 $obj["idUser"],
+											 $obj["datePost"],
+											 $obj["dateNewPost"],
+											 $obj["title"],
+											 $obj["subtitle"],
+											 html_entity_decode($obj["description"]),
+											 $obj["urlMedia"],
+											 $obj["commentUser"],
+											 $obj["commentInvestitors"],
+											 $obj["percentage"],
+											 $obj["lifeMood"],
+											 $obj["lifeCareer"],
+											 $obj["lifeRelationships"],
+											 $obj["lifeYourself"],
+											 $obj["type"]
+										 );
+			}
 			
 			$stmt->close();
 			
 			return $post;
 		}
+		
+		
+		public function getStoryById($idStory){
+			
+			$query = "SELECT * FROM `story` WHERE id = ?";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("i", $idStory);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			
+			if (!$result) {
+				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
+				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
+				
+				exit;
+			}
+			if($result->num_rows === 0) return -1;
+
+			$obj = $result->fetch_assoc();
+
+			$story = new Story( 
+								 	 $obj["id"],
+									 $obj["title"],
+									 html_entity_decode($obj["description"]),
+									 $obj["public"],
+									 $obj["investitorUser"],
+									 $obj["urlPhoto"],
+									 $obj["date"]
+								 );
+			
+			
+			$stmt->close();
+			
+			return $story;
+		}
+		
+		
+		public function getStoriesByUser($idUser){
+			
+			$query = "SELECT * FROM `story` WHERE idUser = ?";
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("i", $idUser);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			
+			if (!$result) {
+				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
+				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
+				
+				exit;
+			}
+			if($result->num_rows === 0) return -1;
+
+			while ($obj = $result->fetch_assoc()) {
+
+				$stories[] = new Story( 
+								 	 $obj["id"],
+									 $obj["title"],
+									 html_entity_decode($obj["description"]),
+									 $obj["public"],
+									 $obj["investitorUser"],
+									 $obj["urlPhoto"],
+									 $obj["date"]
+								 );
+			}
+			
+			$stmt->close();
+			
+			return $stories;
+		}
+		
+		
+		/*
+			MANAGER POST
+		*/
+		public function newStory($title, $description, $public, $investitorUser, $urlPhoto, $idUser){
+					
+			$query = "INSERT INTO `story` (`id`, `title`, `description`, `public`, `investitorUser`, `urlPhoto`, `date`, `idUser`) VALUES (NULL, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?);";
+				
+			$stmt = Manager::getDB()->prepare($query);
+			
+			$stmt->bind_param("sssssi", $title, $description, $public, $investitorUser, $urlPhoto, $idUser);
+			
+			if (!$stmt->execute()) {
+				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
+				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
+				
+				exit;
+			}
+			
+			$stmt->close();
+			return; 
+		}
+		
+		/*
+			MANAGER POST
+		*/
+		public function updateStory($title, $description, $public, $investitorUser, $urlPhoto, $idStory, $idUser){
+					
+			$query = "UPDATE `story` SET `title` = ?, `description` = ?, `public` = ?, `investitorUser` = ?, `urlPhoto` = ? WHERE `story`.`id` = ? AND `story`.`id = ? AND idUser = ?";
+				
+			$stmt = Manager::getDB()->prepare($query);
+			
+			$stmt->bind_param("sssssii", $title, $description, $public, $investitorUser, $urlPhoto, $idStory, $idUser);
+			
+			if (!$stmt->execute()) {
+				echo "<br>Description Error: " . Manager::getDB()->error . " <br>\n";
+				echo "<br>Description Error: " . Manager::getDB()->errno . " <br>\n";
+				
+				exit;
+			}
+			
+			$stmt->close();
+			return; 
+		}
+		
 		
 		/*
 			MANAGER LOGIN 
@@ -321,12 +465,12 @@
 		/*
 			MANAGER LOGIN 
 		*/
-		public function getSumLifeRelationships($idUtente){
+		public function getSumLifeRelationships($idUtente, $idStory){
 			
-			$query = "SELECT SUM(lifeRelationships) FROM `post` WHERE idUser = ?";
+			$query = "SELECT SUM(lifeRelationships) FROM `post` WHERE idUser = ? AND idStory = ?";
 			
 			$stmt = Manager::getDB()->prepare($query);
-			$stmt->bind_param("i", $idUtente);
+			$stmt->bind_param("ii", $idUtente, $idStory);
 			$stmt->execute();
 			
 			$result = $stmt->get_result();
@@ -354,12 +498,12 @@
 		/*
 			MANAGER LOGIN 
 		*/
-		public function getSumLifeCareer($idUtente){
+		public function getSumLifeCareer($idUtente, $idStory){
 			
-			$query = "SELECT SUM(lifeCareer) FROM `post` WHERE idUser=?";
+			$query = "SELECT SUM(lifeCareer) FROM `post` WHERE idUser=? AND idStory = ?";
 			
 			$stmt = Manager::getDB()->prepare($query);
-			$stmt->bind_param("i", $idUtente);
+			$stmt->bind_param("ii", $idUtente, $idStory);
 			$stmt->execute();
 			
 			$result = $stmt->get_result();
@@ -387,12 +531,12 @@
 		/*
 			MANAGER LOGIN 
 		*/
-		public function getSumLifeYourself($idUtente){
+		public function getSumLifeYourself($idUtente, $idStory){
 			
-			$query = "SELECT SUM(lifeYourself) FROM `post` WHERE idUser=?";
+			$query = "SELECT SUM(lifeYourself) FROM `post` WHERE idUser=? AND idStory = ?";
 			
 			$stmt = Manager::getDB()->prepare($query);
-			$stmt->bind_param("i", $idUtente);
+			$stmt->bind_param("ii", $idUtente, $idStory);
 			$stmt->execute();
 			
 			$result = $stmt->get_result();
@@ -529,12 +673,17 @@
 		/*
 			GET PERCENTAGE 
 		*/
-		public function getPercentage($idUser){
+		public function getPercentage($idUser, $idStory){
 			
-			$query = "SELECT id, datePost, title, urlMedia, percentage FROM `post` WHERE `idUser` = '$idUser' ORDER BY datePost ASC";
+			$query = "SELECT id, datePost, title, urlMedia, percentage FROM `post` WHERE `idUser` = ? AND `idStory` = ? ORDER BY datePost ASC";
 			
-			$result = Manager::getDB()->query($query);
-
+			
+			$stmt = Manager::getDB()->prepare($query);
+			$stmt->bind_param("ii", $idUser, $idStory);
+			$stmt->execute();
+			
+			$result = $stmt->get_result();
+						
 			if (!$result) {
 				echo "Description Error: " . Manager::getDB()->error . " <br>";
 				echo "Description Error: " . Manager::getDB()->errno . " <br>";

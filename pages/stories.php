@@ -56,26 +56,33 @@
 		.article:hover{
 			cursor: pointer;
 		}
+		
+		
+		.article img{
+			width: 100%;
+			height: 250px;
+		}
 	</style>
 </head>
 
 <?php
 
-session_start();
-$idUser = "";
-if ( isset( $_SESSION[ 'id' ] ) ) {
-	$myLife_manager = new MyLifeManager();
-	$user = $myLife_manager->getUserByID( $_SESSION[ 'id' ] );
-	$nomeUtente = $user->username;
-	$idUser = $_SESSION[ 'id' ];
+	session_start();
+	$idUser = "";
+	if ( isset( $_SESSION[ 'id' ] ) ) {
+		$myLife_manager = new MyLifeManager();
+		$user = $myLife_manager->getUserByID( $_SESSION[ 'id' ] );
+		$nomeUtente = $user->username;
+		$idUser = $_SESSION[ 'id' ];
 
-} else {
-	header( "location: http://localhost/iambrand/iambrand/pages/login.php" );
-	// redirect verso pagina interna
-}
+	} else {
+		header( "location: http://localhost/iambrand/iambrand/pages/login.php" );
+		// redirect verso pagina interna
+	}
 
-$manager = new MyLifeManager();
-
+	$manager = new MyLifeManager();
+	$array_stories = $manager->getStoriesByUser($idUser);
+	
 ?>
 
 <body>
@@ -93,27 +100,42 @@ $manager = new MyLifeManager();
 		<?php include_once("nav.php"); ?>
 
 		<div id="page-wrapper">
+		
+		
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header color-career">Le tue storie </h1>
+					<h1 class="page-header color-career">Le tue storie <button id="sendInvestitors" style="padding-top: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						Crea storia
+					</button></h1>
+					
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
 			
-			
 			<div class="content">
+				
+				
+					<?php
+				
+						$array_post = $manager->getStoriesByUser($idUser);	
+						$max = sizeof( $array_post );
+						for($i=0; $i<$max; $i++){  
+					?>
+				
 					<div class="col-lg-4">
 							
-							<div id="6" class="panel panel-default article">
+							<div id="<?php echo $array_post[$i]->id ?>" class="panel panel-default article">
 								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Scritta dall'utente ADMIN</a>
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">
+										Scritte da te
+									</a>
 								</div>
 
-								<img src="../image/stories/2018-07-30-00-55-16.jpg"  alt=""/>
+								<img src="<?php echo '../image/' . $idUser . '/story/' .  $array_post[$i]->urlPhoto; ?>" alt=""/>
 
 								<div class="panel-body panel-body-articles">
-									<h4>Obiettivo: laurea in Psicologia</h4>
-									<p>Voglio condividere il mio obiettivo verso la laurea.Le mie giornate e i miei metodi di studio</p>
+									<h4>$array_post[$i]->title</h4>
+									<p>$array_post[$i]->description</p>
 									
 								</div>
 								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
@@ -123,14 +145,16 @@ $manager = new MyLifeManager();
 										<li><strong>Visite:</strong> 4.324</li>
 										<li><strong>Followers:</strong> 754</li>
 										<li><strong>Valore:</strong> §2756,00</li>
-										
 									</ul>
-									
 								</div>
 							</div>
 						</div>
 						
-			</div>
+					 <?php
+						}	
+					 ?>		
+						
+			 </div>
 			
 			
 			<div class="row">
@@ -322,24 +346,155 @@ $manager = new MyLifeManager();
 					</div>
 			</div>
 			
-		
-
-
 		</div>
 		<!-- /#page-wrapper -->
-
 	</div>
 	<!-- /#wrapper -->
 
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" id="exampleModalLabel"> </h3>
 
+				</div>
+				<div class="modal-body">
+				
+						
+					  <div class="form-group">
+						<label for="story_title" >Titolo</label> 
+						<div>
+						  <input id="story_title" name="story_title" placeholder="Titolo" type="text" class="form-control">
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label for="story_description" class="control-label ">Descrizione</label> 
+						<div >
+						  <textarea id="story_description" name="story_description"  rows="3" class="form-control"></textarea>
+						</div>
+					  </div>
+					  
+					  <div class="form-group">
+						<label for="story_investitor" class="control-label">Permetti agli utenti di partecipare alla tua storia come investitori?</label> 
+						<div>
+						  <label class="radio-inline">
+							<input type="radio" checked name="story_investitor" value="si">
+								  si
+						  </label>
+						  <label class="radio-inline">
+							<input type="radio" name="story_investitor" value="no">
+								  no
+						  </label>
+						</div>
+					  </div> 
+					  
+					  <div class="form-group">
+						<label for="story_public" class="control-label">Pubblica o privata? </label> 
+						<div>
+						  <label class="radio-inline">
+							<input type="radio" checked name="story_public" value="si">
+								  si
+						  </label>
+						  <label class="radio-inline">
+							<input type="radio" name="story_public" value="no">
+								  no
+						  </label>
+						</div>
+					  </div> 
+					  
+					 <div class="form-group">
+						 <label for="exampleFormControlFile1"></label>
+							<input type="file" class="form-control-file" name="file" id="story_urlImg">
+					 </div> 						
+											
+				</div>
+				
+				
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+					<button id="saveStory" type="button" class="btn btn-primary">Salva nel database</button>
+					<div id="risposta"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+		
 	<script>
 		$( ".panel" ).click( function () {
 
 			$(this).attr("id");
-			window.location.href = 'stories_personal.php' + '?id=' + $(this).attr("id"); ;
-		
-
+			window.location.href = 'dashboard.php' + '?idStory=' + $(this).attr("id"); 
 		} )
+		
+		$('input[type=radio][name=story_investitor]').change(function() {
+			
+			if (this.value == 'si') {
+				//alert("Si!");
+			}
+			else if (this.value == 'no') {
+				//alert("No!");
+			}
+			
+		});
+		
+		$('input[type=radio][name=story_public]').change(function() {
+			
+			if (this.value == 'si') {
+				//alert("Si!");
+			}
+			else if (this.value == 'no') {
+				//alert("No!");
+			}
+			
+		});
+		
+		$( document ).ready( function () {
+			$( "#saveStory" ).click(
+				function () {
+					//Creazione di un oggetto FormData…
+					var datiForm = new FormData();
+					
+					datiForm.append( 'title', $( "#story_title" ).val() );
+					datiForm.append( 'description', $( "#story_description" ).val() );
+					
+					datiForm.append( 'urlMedia', $( "#story_urlImg" )[ 0 ].files[ 0 ] );
+					
+					datiForm.append( 'investitorUser', $('input[type=radio][name=story_investitor]:checked').val()  );
+					datiForm.append( 'publicStory', $('input[type=radio][name=story_public]:checked').val()  );
+					//datiForm.append( 'type', $( "#p_type" ).val() );
+
+					$.ajax( {
+						url: "../core/control/newStory.php",
+						type: 'POST', //Le info testuali saranno passate in POST
+						data: datiForm, //I dati, forniti sotto forma di oggetto FormData
+						cache: false,
+						processData: false, //Serve per NON far convertire l’oggetto
+						//FormData in una stringa, preservando il file
+						contentType: false, //Serve per NON far inserire automaticamente
+						//un content type errato
+						success: function ( risposta ) {
+							alert(risposta);
+							//$( "#risposta" ).html( risposta );
+							// imposto un refresh di pagina dopo 60 secondi
+							/*	
+							setTimeout( function () {
+								window.location.reload()
+							}, 1000 );
+							*/	
+						},
+						error: function () {
+							alert( "Chiamata fallita!!!" );
+						}
+					} );
+
+				} //function click
+			);
+
+		} );
+
+		
 	</script>
 	<?php include_once("footerlinkscript.html")?>
 

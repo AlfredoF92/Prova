@@ -3,7 +3,7 @@
 class Goal {
     
     public $id;
-	public $idUser;
+	public $idStory;
 	public $title;
 	public $description;
 	public $dateBegin;
@@ -20,10 +20,10 @@ class Goal {
     /**
      * 
      */
-    public function __construct($id, $idUser, $title, $description, $dateBegin, $dateFinal, $idLabel, $name,  $color, $idNameState, $lifeYourself, $lifeCareer, $lifeRelationships, $percentageInvestor )
+    public function __construct($id, $idStory, $title, $description, $dateBegin, $dateFinal, $idLabel, $name,  $color, $idNameState, $lifeYourself, $lifeCareer, $lifeRelationships, $percentageInvestor )
     {
 		$this->id = $id; 
-		$this->idUser = $idUser; 
+		$this->idStory = $idStory; 
 		$this->title = $title; 
 		$this->description = $description; 
 		$this->dateBegin = $dateBegin; 

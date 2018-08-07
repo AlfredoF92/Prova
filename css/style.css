@@ -388,6 +388,20 @@ a.dropdown-toggle {
 }
 
 .size-icon{
-	
 	font-size: 24px;
+}
+
+.header-story{
+	border-bottom: 1px solid #c8c8c8;
+}
+
+.header-bottom{
+	padding-bottom: 20px;
+}
+
+button.btn.btn-default.btn-xs.dropdown-toggle {
+    height: 18px;
+    font-size: 12px;
+    padding: 0px 4px;
+    padding-bottom: 3px;
 }

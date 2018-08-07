@@ -660,7 +660,7 @@ $idUser = $_SESSION[ 'id' ];
 			//idGoal = $( this ).attr( "id" );
 			//$("#modalGoal .modal-title").html("Ciao");	
 			$.ajax( {
-				url: "../core/control/saveGoal.php",
+				url: "../core/control/updateGoal.php",
 				type: 'POST', //Le info testuali saranno passate in POST
 				data: datiForm, //I dati, forniti sotto forma di oggetto FormData
 				cache: false,
@@ -725,7 +725,7 @@ $idUser = $_SESSION[ 'id' ];
 			//idGoal = $( this ).attr( "id" );
 			//$("#modalGoal .modal-title").html("Ciao");	
 			$.ajax( {
-				url: "../core/control/addDay.php",
+				url: "../core/control/newPost.php",
 				type: 'POST', //Le info testuali saranno passate in POST
 				data: datiForm, //I dati, forniti sotto forma di oggetto FormData
 				cache: false,

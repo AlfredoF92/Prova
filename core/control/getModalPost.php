@@ -30,7 +30,7 @@ $idUser = $_SESSION[ 'id' ];
 				$idNews = $_REQUEST[ "idNews" ];
 				
 				$myLife_manager = new MyLifeManager();
-				$news = $myLife_manager->getPost($idUser, $idNews );
+				$news = $myLife_manager->getPost($idNews);
 
 				echo $news->title;
 				?>
@@ -210,7 +210,7 @@ $idUser = $_SESSION[ 'id' ];
 			
 			
 			$.ajax( {
-				url: "../core/control/updateNews.php",
+				url: "../core/control/updatePost.php",
 				type: 'POST', //Le info testuali saranno passate in POST
 				data: datiForm, //I dati, forniti sotto forma di oggetto FormData
 				cache: false,

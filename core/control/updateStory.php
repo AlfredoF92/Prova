@@ -4,6 +4,7 @@
 		include_once( "../manager/MyLifeManager.php" );
 		include_once( "../model/Utente.php" );
 		include_once( "../model/Goal.php" );
+		include_once( "../model/Story.php" );
 		
 		$myLife_manager = new MyLifeManager();
 		
@@ -17,9 +18,7 @@
 			
 		}
 		$idUser =  $_SESSION['id']; 
-		$idPost =  $_REQUEST['idNews']; 
-		
-
+		$idStory = $_REQUEST['idStory'];
 		/*
 			########## IMAGE MANAGEMENT #########
 		*/
@@ -27,7 +26,7 @@
 		// per prima cosa verifico che il file sia stato effettivamente caricato
 		if (!isset($_FILES['urlMedia']) || !is_uploaded_file($_FILES['urlMedia']['tmp_name'])) {
 		   echo 'Non hai inviato nessun file...';   
-		   $urlMedia = $_REQUEST['urlMediaOld']; 
+		   $nomeFile = ""; 
 		}else{
 			//percorso della cartella dove mettere i file caricati dagli utenti
 			$uploaddir = 'http://localhost/iambrand/iambrand/image/' . $_SESSION['id'] . '/diario/';
@@ -48,15 +47,15 @@
 				}else echo "La cartella ID non è stata creata <br>";
 			}	
 
-			if (!is_dir("../../image/" . $_SESSION['id'] . "/diario")) {
-				if(mkdir("../../image/" . $_SESSION['id'] . "/diario")) {
+			if (!is_dir("../../image/" . $_SESSION['id'] . "/story")) {
+				if(mkdir("../../image/" . $_SESSION['id'] . "/story")) {
 				//  echo 'La cartella Diario è stata creata <br>';
-				}else echo "La cartella Diario non è stata creata <br>";
+				}else echo "La cartella Story non è stata creata <br>";
 			}	
 			$urlMedia = date("Y-m-d-H-i-s") . "." . $ext[count($ext)-1];
 
 			//copio il file dalla sua posizione temporanea alla mia cartella upload
-			if (move_uploaded_file($userfile_tmp, "../../image/" . $_SESSION['id'] . "/diario/" . $urlMedia)) {
+			if (move_uploaded_file($userfile_tmp, "../../image/" . $_SESSION['id'] . "/story/" . $urlMedia)) {
 			  //Se l'operazione è andata a buon fine...
 			  //echo 'File inviato con successo.';
 			  $nomeFile = $_FILES['urlMedia']['name'];	
@@ -66,37 +65,23 @@
 			  $nomeFile = ""; 
 			}
 		}
-		
+
 		/*
 			########## GET $_REQUEST #########	
 		*/
 		$title = $_REQUEST[ 'title' ];
-		//$subtitle = $_REQUEST[ 'subtitle' ];
 		$description = $_REQUEST[ 'description' ];
-		
-		$subtitle = $_REQUEST[ 'subTitle' ];
-		$datePost = $_REQUEST[ 'datePost' ];
-		$commentUser = $_REQUEST[ 'commentUser' ];	
-		$commentInvestitors = "";	$lifeMood = 0;	
-		$percentage = $_REQUEST[ 'percentage' ];	
-		$lifeCareer = $_REQUEST[ 'lifeCareer' ];	
-		$lifeRelationships = $_REQUEST[ 'lifeRelationships' ];	
-		$lifeYourself = $_REQUEST[ 'lifeYourself' ];	
-		
-		//$type = $_REQUEST[ 'type' ];	
+		$investitorUser = $_REQUEST[ 'investitorUser' ];
+		$publicStory = $_REQUEST[ 'publicStory' ];
 
-		//echo mktime(0, 0, 0, date("m"), date("d")-1, date("Y")); 
 		$date = date( 'Y-m-d H:i:s', time() );
-			
-		
 
+		
 		/*
 			########## SAVE IN DATABASE #########
-		updatePost($datePost, $urlMedia, $title, $subTitle, $commentUser, $percentage, $lifeCareer, $lifeRelationships, $lifeYourself, $idPost, $idUser)
-		
 		*/
+	
 
-		$myLife_manager->updatePost($datePost, $urlMedia, $title, $subtitle, $description, $commentUser, $percentage, $lifeCareer, $lifeRelationships, $lifeYourself, $idPost, $idUser);
-		
+		$myLife_manager->updateStory($title, $description, $publicStory, $investitorUser, $urlMedia, $idStory);
 		echo "Salvato nel database!";
 ?>

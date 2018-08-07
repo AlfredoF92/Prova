@@ -77,7 +77,7 @@
 			echo "Edit color: " . $labelEditColor . "<br>";*/
 			
 		}
-		
-		$myLife_manager->addGoal($idUser, $title, $description, $dateBegin, $dateFinal, $idLabel, $lifeYourself, $lifeCareer, $lifeRelationships, $percentage);
+		$idStory = $_REQUEST["idStory"];
+		$myLife_manager->newGoal($idStory, $title, $description, $dateBegin, $dateFinal, $idLabel, $lifeYourself, $lifeCareer, $lifeRelationships, $percentage);
 		echo "Salvato";
 ?>

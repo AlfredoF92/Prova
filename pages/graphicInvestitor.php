@@ -1,4 +1,4 @@
-<script>
+das<script>
 	new Morris.Line( {
 		// ID of the element in which to draw the chart.
 		element: 'myfirstchart',
@@ -8,7 +8,6 @@
 
 			<?php 
 				
-				$array_posts_ASC = $manager->getPercentage($idUser, $idStory); 
 				
 				$value = 1000; 
 				

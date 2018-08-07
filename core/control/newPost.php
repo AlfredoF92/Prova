@@ -17,8 +17,8 @@
 			
 		}
 		$idUser =  $_SESSION['id']; 
-		$idStory =  $_REQUEST['idStory']; 
-				
+		$idStory = "";
+
 		if ($_REQUEST['type']=="day"){
 			/*
 				########## IMAGE MANAGEMENT #########
@@ -82,16 +82,18 @@
 			$lifeRelationships = $_REQUEST[ 'lifeRelationships' ];	
 			$lifeYourself = $_REQUEST[ 'lifeYourself' ];	
 			$type = "day";
+			$idStory = $_REQUEST['idStory'];
 			//$type = $_REQUEST[ 'type' ];	
 
 			//echo mktime(0, 0, 0, date("m"), date("d")-1, date("Y")); 
 			$date = date( 'Y-m-d H:i:s', time() );
 			
-		}else if ($_REQUEST['type']=="goal"){
+		}else if ($_REQUEST['type']=="goal"){ //aggiungi un post da un goal
 			
 			$idGoal = $_REQUEST[ 'idGoal' ];
 			$goal = $myLife_manager->getGoal($idGoal);
 			$date = date( 'Y-m-d H:i:s', time() );
+			$idStory = $goal->idStory;
 			
 			if($_REQUEST[ 'resultGoal' ] == 1){
 				$title = $goal->title;
@@ -121,10 +123,11 @@
 			
 			$type = "goal";
 		}
-
+		
+		
 		/*
 			########## SAVE IN DATABASE #########
 		*/
-		$myLife_manager->addPost($idUser, $date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type, $idStory);
+		$myLife_manager->newPost($date, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type, $idStory);
 		echo "Salvato nel database!";
 ?>

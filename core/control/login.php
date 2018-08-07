@@ -18,7 +18,7 @@
 			session_start();
 			session_unset();		
 			echo 0;
-		}else if($user->id > 0){
+		}else if($user->id > 0){+-
 			
 			session_start();
 			$_SESSION['id']=$user->id;

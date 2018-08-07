@@ -66,7 +66,7 @@
 </head>
 
 <?php
-
+	
 	session_start();
 	$idUser = "";
 	if ( isset( $_SESSION[ 'id' ] ) ) {
@@ -79,14 +79,13 @@
 		header( "location: http://localhost/iambrand/iambrand/pages/login.php" );
 		// redirect verso pagina interna
 	}
-
+	
 	$manager = new MyLifeManager();
 	$array_stories = $manager->getStoriesByUser($idUser);
 	
 ?>
 
 <body>
-
 	
 	<script>
 		$( ".modal-wide" ).on( "show.bs.modal", function () {
@@ -114,28 +113,30 @@
 			
 			<div class="content">
 				
-				
 					<?php
 				
-						$array_post = $manager->getStoriesByUser($idUser);	
-						$max = sizeof( $array_post );
+						$my_stories = $manager->getStoriesByUser($idUser);	
+						$max = sizeof( $my_stories );
+						if(is_int($my_stories)){
+							if($my_stories==-1) echo "<h5>Non c'è nessuna storia della community</h5>";
+						}else
 						for($i=0; $i<$max; $i++){  
 					?>
 				
 					<div class="col-lg-4">
 							
-							<div id="<?php echo $array_post[$i]->id ?>" class="panel panel-default article">
+							<div id="<?php echo $my_stories[$i]->id ?>" class="panel panel-default article">
 								<div class="panel-heading">
 									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">
 										Scritte da te
 									</a>
 								</div>
 
-								<img src="<?php echo '../image/' . $idUser . '/story/' .  $array_post[$i]->urlPhoto; ?>" alt=""/>
+								<img src="<?php echo '../image/' . $my_stories[$i]->urlPhoto; ?>" alt=""/>
 
 								<div class="panel-body panel-body-articles">
-									<h4>$array_post[$i]->title</h4>
-									<p>$array_post[$i]->description</p>
+									<h4><?php echo $my_stories[$i]->title ?></h4>
+									<p><?php echo $my_stories[$i]->description ?></p>
 									
 								</div>
 								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
@@ -151,7 +152,8 @@
 						</div>
 						
 					 <?php
-						}	
+						}
+				
 					 ?>		
 						
 			 </div>
@@ -166,20 +168,32 @@
 			
 			
 			<div class="content">
-					<div class="row">
-					
-						<div class="col-lg-4">
-						
-							<div class="panel panel-default article">
+				
+					<?php
+				
+						$community_stories = $manager->getStoriesCommunity($idUser);	
+						$max = sizeof( $community_stories );
+						if(is_int($community_stories)){
+							if($community_stories==-1) echo "<h5>Non hai scritto nessuna storia</h5>";
+						}else {
+						for($i=0; $i<$max; $i++){ 
+							
+					?>
+				
+					<div class="col-lg-4">
+							
+							<div id="<?php echo $community_stories[$i]->id ?>" class="panel panel-default article">
 								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Scritta dall'utente ADMIN</a>
+									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">
+										Scritte da <?php echo $community_stories[$i]->idUser; ?>
+									</a>
 								</div>
 
-								<img src="../image/stories/2018-07-30-00-55-16.jpg"  alt=""/>
+								<img src="<?php echo '../image/' . $community_stories[$i]->urlPhoto; ?>" alt=""/>
 
 								<div class="panel-body panel-body-articles">
-									<h4>Obiettivo: laurea in Psicologia</h4>
-									<p>Voglio condividere il mio obiettivo verso la laurea.Le mie giornate e i miei metodi di studio</p>
+									<h4><?php echo $community_stories[$i]->title ?></h4>
+									<p><?php echo $community_stories[$i]->description ?></p>
 									
 								</div>
 								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
@@ -189,162 +203,17 @@
 										<li><strong>Visite:</strong> 4.324</li>
 										<li><strong>Followers:</strong> 754</li>
 										<li><strong>Valore:</strong> §2756,00</li>
-										
 									</ul>
-									
 								</div>
 							</div>
 						</div>
 						
-						
-						
-						<div class="col-lg-4">
-						
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Scritta dall'utente ADMIN</a>
-								</div>
-
-								<img src="../image/stories/18wcpista12.jpg"  alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Obiettivo: laurea in Psicologia</h4>
-									<p>Voglio condividere il mio obiettivo verso la laurea.Le mie giornate e i miei metodi di studio</p>
-									
-								</div>
-								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
-									<ul>
-										<li><strong>Completato:</strong> No</li>
-										<li><strong>Solo lettura:</strong> Si</li>
-										<li><strong>Visite:</strong> 4.324</li>
-										<li><strong>Followers:</strong> 754</li>
-										<li><strong>Valore:</strong> §2756,00</li>
-										
-									</ul>
-									
-								</div>
-							</div>
-						</div>
-						
-						
-						
-						<div class="col-lg-4">
-						
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Scritta dall'utente ADMIN</a>
-								</div>
-
-								<img src="../image/stories/maxresdefault.jpg"  alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Obiettivo: laurea in Psicologia</h4>
-									<p>Voglio condividere il mio obiettivo verso la laurea.Le mie giornate e i miei metodi di studio</p>
-									
-								</div>
-								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
-									<ul>
-										<li><strong>Completato:</strong> No</li>
-										<li><strong>Solo lettura:</strong> Si</li>
-										<li><strong>Visite:</strong> 4.324</li>
-										<li><strong>Followers:</strong> 754</li>
-										<li><strong>Valore:</strong> §2756,00</li>
-										
-									</ul>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-					
-						<div class="col-lg-4">
-						
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Scritta dall'utente ADMIN</a>
-								</div>
-
-								<img src="../image/stories/Catturaeeetrtttrt_MGZOOM.JPG"  alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Obiettivo: laurea in Psicologia</h4>
-									<p>Voglio condividere il mio obiettivo verso la laurea.Le mie giornate e i miei metodi di studio</p>
-									
-								</div>
-								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
-									<ul>
-										<li><strong>Completato:</strong> No</li>
-										<li><strong>Solo lettura:</strong> Si</li>
-										<li><strong>Visite:</strong> 4.324</li>
-										<li><strong>Followers:</strong> 754</li>
-										<li><strong>Valore:</strong> §2756,00</li>
-										
-									</ul>
-									
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-lg-4">
-						
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Scritta dall'utente ADMIN</a>
-								</div>
-
-								<img src="../image/stories/casal-2368560_640.jpg"  alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Obiettivo: laurea in Psicologia</h4>
-									<p>Voglio condividere il mio obiettivo verso la laurea.Le mie giornate e i miei metodi di studio</p>
-									
-								</div>
-								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
-									<ul>
-										<li><strong>Completato:</strong> No</li>
-										<li><strong>Solo lettura:</strong> Si</li>
-										<li><strong>Visite:</strong> 4.324</li>
-										<li><strong>Followers:</strong> 754</li>
-										<li><strong>Valore:</strong> §2756,00</li>
-										
-									</ul>
-									
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-lg-4">
-						
-							<div class="panel panel-default article">
-								<div class="panel-heading">
-									<a style="color: white" href="https://efficacemente.com/2009/02/come-memorizzare-un-libro-di-200-pagine-in-40-minuti/">Scritta dall'utente ADMIN</a>
-								</div>
-
-								<img src="../image/stories/d9f5b54a-8515-4dbe-8b0d-1f6f75c708aa_large_p.jpg"  alt=""/>
-
-								<div class="panel-body panel-body-articles">
-									<h4>Obiettivo: laurea in Psicologia</h4>
-									<p>Voglio condividere il mio obiettivo verso la laurea.Le mie giornate e i miei metodi di studio</p>
-									
-								</div>
-								<div class="panel-footer panel-footer-articles shadow-sm p-4 mb-4 text-left">
-									<ul>
-										<li><strong>Completato:</strong> No</li>
-										<li><strong>Solo lettura:</strong> Si</li>
-										<li><strong>Visite:</strong> 4.324</li>
-										<li><strong>Followers:</strong> 754</li>
-										<li><strong>Valore:</strong> §2756,00</li>
-										
-									</ul>
-									
-								</div>
-							</div>
-						</div>
-						
-						
-					</div>
-			</div>
+					 <?php
+						}
+						}	
+					 ?>				
+			 </div>
+			
 			
 		</div>
 		<!-- /#page-wrapper -->

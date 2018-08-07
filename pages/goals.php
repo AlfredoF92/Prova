@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
@@ -75,7 +75,7 @@ $manager = new MyLifeManager();
 										MANAGER LABEL
 									-->
 							<?php
-
+								
 							$array_labels = $myLife_manager->getLabels( $idUser );
 							$max_labels = sizeof( $array_labels );
 
@@ -360,8 +360,7 @@ $manager = new MyLifeManager();
 
 			var dateBegin = dBegin + " " + tBegin;
 			var dateFinal = dFinal + " " + tFinal;
-			alert( dateBegin );
-			alert( dateFinal );
+			
 
 			datiForm.append( 'title', $( "#gm_title" ).val() );
 			datiForm.append( 'description', $( "#gm_description" ).val() );
@@ -412,7 +411,7 @@ $manager = new MyLifeManager();
 				//un content type errato
 				success: function ( risposta ) {
 
-					$( '#answerHtml2' ).html( "OBIETTIVO CREATO!" );
+					$( '#answerHtml2' ).html( risposta );
 
 					// imposto un refresh di pagina dopo 60 secondi
 

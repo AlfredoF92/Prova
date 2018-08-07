@@ -5,25 +5,25 @@ class Story {
     public $id;
 	public $title;
 	public $description;
-	public $publicStory;
-	public $investitorUser;
 	public $urlPhoto;
 	public $dateStory;
+	public $idUser;
+	public $idTypeStory;
 
 	
     /**
      * 
      */
-    public function __construct($id, $title, $description, $publicStory, $investitorUser, $urlPhoto, $dateStory )
+    public function __construct($id, $title, $description, $urlPhoto, $dateStory, $idUser, $idTypeStory )
     {
 		
 		$this->id = $id; 
 		$this->title = $title; 
 		$this->description = $description; 
-		$this->publicStory = $publicStory; 
-		$this->investitorUser = $investitorUser; 
 		$this->urlPhoto = $urlPhoto; 
 		$this->dateStory = $dateStory; 
+		$this->idUser = $idUser; 
+		$this->idTypeStory = $idTypeStory; 
 		
     }
 	

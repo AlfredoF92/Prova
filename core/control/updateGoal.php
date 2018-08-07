@@ -72,6 +72,6 @@
 			
 		}
 		
-		$myLife_manager->updateGoal($idGoal, $idUser, $title, $description, $dateBegin, $dateFinal, $idLabel, $lifeYourself, $lifeCareer, $lifeRelationships, $percentage);
+		$myLife_manager->updateGoal($idGoal, $title, $description, $dateBegin, $dateFinal, $idLabel, $lifeYourself, $lifeCareer, $lifeRelationships, $percentage);
 		echo "Salvato";
 ?>

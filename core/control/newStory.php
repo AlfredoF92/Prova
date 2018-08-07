@@ -39,8 +39,8 @@
 
 			$ext = explode(".", $userfile_name);
 
-			$path = 'http://localhost/iambrand/iambrand/image/' . $_SESSION['id'] . '/diario/';
-
+			
+			/*
 			if (!is_dir("../../image/" . $_SESSION['id'] )) {
 				if(mkdir("../../image/" . $_SESSION['id'] )) {
 				//  echo 'La cartella ID è stata creata <br>';
@@ -51,11 +51,12 @@
 				if(mkdir("../../image/" . $_SESSION['id'] . "/story")) {
 				//  echo 'La cartella Diario è stata creata <br>';
 				}else echo "La cartella Story non è stata creata <br>";
-			}	
+			}*/
+			
 			$urlMedia = date("Y-m-d-H-i-s") . "." . $ext[count($ext)-1];
 
 			//copio il file dalla sua posizione temporanea alla mia cartella upload
-			if (move_uploaded_file($userfile_tmp, "../../image/" . $_SESSION['id'] . "/story/" . $urlMedia)) {
+			if (move_uploaded_file($userfile_tmp, "../../image/" . $urlMedia)) {
 			  //Se l'operazione è andata a buon fine...
 			  //echo 'File inviato con successo.';
 			  $nomeFile = $_FILES['urlMedia']['name'];	
@@ -81,7 +82,7 @@
 		/*
 			########## SAVE IN DATABASE #########
 		*/
-		$myLife_manager->newStory($title, $description, $publicStory, $investitorUser, $urlMedia, $idUser);
+		$myLife_manager->newStory($title, $description, $urlMedia, $idUser);
 
 		echo "Salvato nel database!";
 

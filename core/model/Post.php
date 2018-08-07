@@ -3,7 +3,7 @@
 class Post {
    
     public $id;
-    public $idUser;
+    public $idStory;
     public $datePost;
 	public $dateNewPost; //Data ultima modifica
     public $title;
@@ -18,6 +18,7 @@ class Post {
 	public $lifeRelationships;
 	public $lifeYourself;
 	public $type;
+	public $idUser;
 	
 	
     //$id, $idUser, $datePost, $dateNewPost, $title, $subtitle, $description, $urlMedia, $commentUser, $commentInvestitors, $percentage, $lifeMood, $lifeCareer, $lifeRelationships, $lifeYourself, $type
@@ -34,7 +35,7 @@ class Post {
 			
 		}else {
 			$this->id = func_get_arg(0);
-			$this->idUser = func_get_arg(1);
+			$this->idStory = func_get_arg(1);
 			$this->datePost = func_get_arg(2);
 			$this->dateNewPost = func_get_arg(3);
 			$this->title = func_get_arg(4);
@@ -49,6 +50,8 @@ class Post {
 			$this->lifeRelationships = func_get_arg(13);
 			$this->lifeYourself = func_get_arg(14);
 			$this->type = func_get_arg(15);
+			$this->idUser = func_get_arg(16);
+			
 		}
 		
     }

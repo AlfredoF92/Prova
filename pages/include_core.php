@@ -4,6 +4,7 @@
 	include_once ("../core/model/Utente.php");
 	include_once ("../core/model/Goal.php");
 	include_once ("../core/model/Story.php");
+	include_once ("../core/model/Label.php");
 	
 
 	include_once ("../core/manager/Manager.php");
